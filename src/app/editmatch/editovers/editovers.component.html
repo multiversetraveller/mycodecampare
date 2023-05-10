@@ -1,0 +1,50 @@
+<div class=' w100 fl mb20' *ngIf='!isPlayerDiv'>
+    <div class='inning-1-div'>
+        <p class="m0  w100 teamTitle fCap">{{inning1Team}}</p>
+        <mat-list role="list" *ngFor='let item of inning1Data' style=" padding: 10px; ">
+            <mat-list-item role="listitem"
+                style=" padding: 10px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                <button mat-raised-button class='over-btn'
+                    (click)='goOverBallPage(item.over, "1")'>Over:{{item.over}}</button>
+                <div matListItemTitle style=" text-align: center; width: 100%; position: absolute;" class="lebfon">
+                    {{item.bowler_name}}</div>
+                <button mat-raised-button color="primary" class="bluebtn"
+                    (click)='showBowler(item.bowling_team_id, item.bowler_id, "1", item.over)'>Change</button>
+
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div class='inning-2-div'>
+        <p class="m0 teamTitle w100  fCap">{{inning2Team}}</p>
+        <mat-list role="list" *ngFor='let item of inning2Data' style=" padding: 10px; ">
+            <mat-list-item role="listitem"
+                style=" padding: 10px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                <button mat-raised-button class='over-btn'
+                    (click)='goOverBallPage(item.over, "2")'>Over:{{item.over}}</button>
+                <div matListItemTitle style=" text-align: center; width: 100%; position: absolute;" class="lebfon">
+                    {{item.bowler_name}}</div>
+                <button mat-raised-button color="primary" class="bluebtn"
+                    (click)='showBowler(item.bowling_team_id, item.bowler_id, "2", item.over)'>Change</button>
+            </mat-list-item>
+        </mat-list>
+    </div>
+</div>
+
+<div class='p15 w100 fl' *ngIf='isPlayerDiv'>
+    <div class='custom-popup' [ngStyle]="{'height': popupHeight}">
+        <div class='popup-title'>
+            Click On Player To Update
+        </div>
+        <i class="material-icons close-btn" (click)='closeDialog()'>close</i>
+        <div class='popup-btn-div' [ngStyle]="{'height': insidePopupHeight}">
+            <button mat-raised-button *ngFor='let item of bowlers' class='player-btn'
+                (click)='updateBowler(item.player_id)'
+                [class.activeItem]='item.player_id == selectedBowler'>{{item.name}} {{item.fathername}}
+                {{item.surname}}</button>
+        </div>
+    </div>
+</div>
+
+<mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50'
+    style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
+</mat-progress-spinner>

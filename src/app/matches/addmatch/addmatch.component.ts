@@ -95,7 +95,8 @@ export class AddmatchComponent implements OnInit {
         let dateFormat = '';
         const dateArr = data['match_date'].split('/');
         dateFormat = `${dateArr[1]}/${dateArr[0]}/${dateArr[2]}`;
-        // console.log(data['timeslot']);
+        console.log(dateFormat);
+
         // console.log(data['timeslot'].split('-'));
         this.sformate= data['timeslot'].split(':');
       //  const sh= this.sformate.substr("",2);

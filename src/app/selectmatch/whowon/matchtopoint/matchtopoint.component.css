@@ -1,0 +1,15 @@
+.button-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn {
+    background-color: green !important;
+    color: #fff !important;
+    position: absolute;
+    left: 50%;
+    padding: 40px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+}

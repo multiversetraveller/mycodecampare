@@ -1,0 +1,51 @@
+.btnNext{background-color: #3f51b5 !important;color: #fff !important; width: 100%;  left: 0; bottom: 0; height:50px;}
+.overAuto{overflow-y: auto;}
+.team_div{    position: relative;
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    box-shadow: rgb(107 118 227 / 34%) 0px 2px 4px, rgb(63 81 181 / 31%) 0px 7px 13px -3px, rgb(35 15 200 / 20%) 0px -3px 0px inset;}
+.team_div p{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.team_div img{    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin: 20px;
+}
+.mat-radio-button{height: 100%;position: absolute; width: 100%; right: 0;}
+::ng-deep .mat-radio-label{height: 100%; width: 100%;}
+::ng-deep .mat-radio-container{margin: 0 !important; position: absolute !important; right: 0; bottom: 2px;}
+.tt{    font-size: 22px;
+    margin-bottom: 10px;
+    margin-top: 0;}
+.team_div ::ng-deep .mat-radio-outer-circle{border-radius: 0px;}
+::ng-deep .mat-radio-container{opacity: 0;}
+.btnGoScoreboard{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12); background-color: green;color: #fff; width: 95%; position: fixed; left: 0; height: 40px; line-height: 32px; bottom: 55px; right: 0; margin: auto;}
+::ng-deep .mat-radio-checked{border: 2px solid green;}
+input[type="radio"]:ng-reflect-checked + p{
+    background-color: rgb(241, 123, 229) !important;
+   
+}
+
+.custom-radio-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .custom-radio-card:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .custom-radio-card h3 {
+    margin-top: 0;
+  }
+  
+  .custom-radio-card p {
+    margin-bottom: 0;
+  }
+  
+
+  

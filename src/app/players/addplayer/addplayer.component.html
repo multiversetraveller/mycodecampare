@@ -40,21 +40,23 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Register No" type="number" [(ngModel)]='registeno'>
+            <mat-label>Register No</mat-label>
+            <input matInput placeholder="Register No" type="number" [(ngModel)]='registeno' (ngModelChange)="checkregids($event)">
+            <p [ngStyle]="{'color':colorcode}">{{msgnote}}</p>
         </mat-form-field>
 
 
 
         <mat-form-field>
+            <mat-label>Bid Value</mat-label>
             <input matInput placeholder="Bid Value" type="number" [(ngModel)]='bidvalue'>
         </mat-form-field>
         <div class="matss ">
             <mat-label  id="example-radio-group-label">Bid Status</mat-label><br>
             <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
             [(ngModel)]='bidstatus'>
-                <mat-radio-button class="example-radio-button" *ngFor="let season of seasons ;" [value]="season">
-                     {{season}}
-                </mat-radio-button>
+                <mat-radio-button  class="example-radio-button"  value="1">Bid</mat-radio-button>
+                <mat-radio-button class="example-radio-button" value="0">Unbid</mat-radio-button> 
             </mat-radio-group>
         </div>
         <div class="matss ">
@@ -67,13 +69,16 @@
         </div>
 
         <mat-form-field>
+            <mat-label>Player Name</mat-label>
             <input matInput placeholder="Player Name" [(ngModel)]='playername'>
         </mat-form-field>
 
         <mat-form-field>
+            <mat-label>Father Name</mat-label>
             <input matInput placeholder="Father Name" [(ngModel)]='fathername'>
         </mat-form-field>
         <mat-form-field>
+            <mat-label>Surname</mat-label>
             <input matInput placeholder="Surname" [(ngModel)]='surname'>
         </mat-form-field>
         <div class="matss ">
@@ -94,15 +99,17 @@
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>Age</mat-label>
-                <input matInput placeholder="Age" [value]='playerAge' disabled>
+                <input matInput placeholder="Age" [value]='playerAge' >
             </mat-form-field>
         </div>
        
         <mat-form-field>
+            <mat-label>Mobile Number</mat-label>
             <input matInput placeholder="Mobile Number" type='number' [(ngModel)]='playermobno'>
         </mat-form-field>
 
         <mat-form-field>
+            <mat-label>Email</mat-label>
             <input matInput placeholder="Email" [(ngModel)]='playeremail'>
         </mat-form-field>
 
@@ -206,7 +213,7 @@
         <!-- <div class="mat-form-field" *ngIf = 'Bowler == true || AllRounder == true' > -->
         <div class="mat-form-field" style="margin: 25px;">
             <mat-label class="dpl">BOWLER</mat-label><br>
-            <mat-radio-group [(ngModel)]='BowlerType'>
+            <mat-radio-group [(ngModel)]='BowlerType' >
                 <mat-radio-button value="spinner" name="trades">Spinner</mat-radio-button>
                 <mat-radio-button class="width12" value="faster">Fast Bowler</mat-radio-button>
             </mat-radio-group>
@@ -250,7 +257,7 @@
         </div>
     </div>
     <div class="loader-div" *ngIf='isLoaderShow'>
-        <mat-progress-spinner mode='indeterminate' diameter='50'>
+        <mat-progress-spinner mode='indeterminate' diameter='50' style="position: absolute; left: 50%; right:50%; transform: translate(-50% , -50%);">
         </mat-progress-spinner>
     </div>
 </div>

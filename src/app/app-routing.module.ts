@@ -38,7 +38,16 @@ import { AdduserComponent } from './users/adduser/adduser.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ChangeapiurlComponent } from './changeapiurl/changeapiurl.component';
 import { BiddingComponent } from './bidding/bidding.component';
-
+import { EditmatchComponent } from './editmatch/editmatch.component';
+import { MatchtopointComponent } from './selectmatch/whowon/matchtopoint/matchtopoint.component';
+import { WhowonComponent } from './selectmatch/whowon/whowon.component';
+import { EditselectplayerComponent } from './editmatch/editselectplayer/editselectplayer.component';
+import { EdittossComponent } from './editmatch/edittoss/edittoss.component';
+import { EditoversComponent } from './editmatch/editovers/editovers.component';
+import { EditscoreboardComponent } from './editmatch/editscoreboard/editscoreboard.component';
+import { EditwicketComponent } from './selectmatch/editwicket/editwicket.component';
+import { EditscorecardComponent } from './selectmatch/editscorecard/editscorecard.component';
+import { Editwicket2Component } from './selectmatch/editwicket2/editwicket2.component';
 const routes: Routes = [
 
   { path: '', redirectTo: '/tournamentlist', pathMatch: 'full' },
@@ -80,6 +89,18 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent },
   { path: 'changeapiurl', component: ChangeapiurlComponent },
   { path: 'bidding', component: BiddingComponent },
+  { path: 'editmatch', component: EditmatchComponent },
+  { path: 'matchtopoint', component: MatchtopointComponent },
+  { path: 'whowon', component: WhowonComponent },
+  { path: 'editselectplayer', component: EditselectplayerComponent },
+  { path: 'edittoss', component: EdittossComponent },
+  { path: 'editovers', component: EditoversComponent },
+  { path: 'editscoreboard', component: EditscoreboardComponent },
+  { path: 'editwicket', component: EditwicketComponent },
+  { path: 'editwicket', component: EditwicketComponent },
+  { path: 'editscorecard', component: EditscorecardComponent },
+  { path: 'editwicket2', component: Editwicket2Component },
+
 
 
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,12 +50,30 @@ import { AdduserComponent } from './users/adduser/adduser.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ChangeapiurlComponent } from './changeapiurl/changeapiurl.component';
-import { BiddingComponent,settingpopup } from './bidding/bidding.component'; 
+import { BiddingComponent,settingpopup } from './bidding/bidding.component';
+import { EditmatchComponent } from './editmatch/editmatch.component'; 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { WhowonComponent } from './selectmatch/whowon/whowon.component';
+import { MatchtopointComponent } from './selectmatch/whowon/matchtopoint/matchtopoint.component';
+import { EditselectplayerComponent } from './editmatch/editselectplayer/editselectplayer.component';
+import { EdittossComponent } from './editmatch/edittoss/edittoss.component';
+import { CommonModule } from '@angular/common';
+import { EditoversComponent } from './editmatch/editovers/editovers.component';
+import { EditscoreboardComponent } from './editmatch/editscoreboard/editscoreboard.component';
+import { EditwicketComponent } from './selectmatch/editwicket/editwicket.component';
+import { EditscorecardComponent, DialogOverviewExampleDialogs,
+  NoBallDialogs,SelectPlayerDialogs,DialogEditscorecards } from './selectmatch/editscorecard/editscorecard.component';
+import { Editwicket2Component } from './selectmatch/editwicket2/editwicket2.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     TournamentlistComponent,
     LoginComponent,
+    DialogOverviewExampleDialogs,
+    NoBallDialogs,
+    SelectPlayerDialogs,
+    DialogEditscorecards,
     SelectmatchComponent,
     SelectplayerComponent,
     SelecttossComponent,
@@ -97,7 +115,17 @@ import { BiddingComponent,settingpopup } from './bidding/bidding.component';
     AboutusComponent,
     ChangeapiurlComponent,
     BiddingComponent,
-    settingpopup
+    settingpopup,
+    EditmatchComponent,
+    WhowonComponent,
+    MatchtopointComponent,
+    EditselectplayerComponent,
+    EdittossComponent,
+    EditoversComponent,
+    EditscoreboardComponent,
+    EditwicketComponent,
+    EditscorecardComponent,
+    Editwicket2Component,
   ],
   imports: [
     BrowserModule,
@@ -106,10 +134,11 @@ import { BiddingComponent,settingpopup } from './bidding/bidding.component';
     MaterialModule,
     MatDividerModule,
     FormsModule,
+    ReactiveFormsModule,
     ImageCropperModule,
     CKEditorModule,
-    HttpClientModule,MaterialModule
-    
+    HttpClientModule,MaterialModule,CommonModule,
+    FontAwesomeModule
     
   ],
   providers: [ScoreboardComponent, LivescoreService],

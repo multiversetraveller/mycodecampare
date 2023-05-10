@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -12,12 +14,20 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .pt15{padding-top: 15px;}
 .w100{width: 100% !important;}
 .w50{width: 50%;}
+.w60p{width: 60px;}
+
 .w25{width: 25%;}
 .w23 {
     width: 23%;
 }
 .w12 {
     width: 12%;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.mb0 {
+  margin-bottom: 0px;
 }
 .w33{width: 33.33333%;}
 .w66{width: 66.66666%;}
@@ -53,6 +63,7 @@ div{box-sizing: border-box; -webkit-box-sizing: border-box;}
 .mb10{margin-bottom: 10px !important;}
 .mb15{margin-bottom: 15px;}
 .mb20{margin-bottom: 20px !important;}
+.mb30{margin-bottom: 30px !important;}
 
 .posRel{position: relative;}
 .f16{font-size: 16px;}
@@ -99,7 +110,11 @@ div{box-sizing: border-box; -webkit-box-sizing: border-box;}
 .mr5{margin-right: 5px;}
 .w50p{width: 50px;}
 .bgRed{background-color: red;}
-.dot-css{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.dot-css{    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Roboto';
+  text-transform: capitalize;}
 .loader-div {z-index: 1;height: 100%;width: 100%; background: rgba(0,0,0,0.8);position: fixed; top: 0; left: 0;}
 
 

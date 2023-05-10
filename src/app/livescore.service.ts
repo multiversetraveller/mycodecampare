@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { io } from "socket.io-client";
+import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LivescoreService {
   private url = 'http://167.86.98.176:1443';
-    // private url = 'http://localhost:3000';
-    private socket;
+     //private url = 'http://localhost:3000';
+    private socket: Socket;
     public message = [];
     public data = [];
      constructor() {
