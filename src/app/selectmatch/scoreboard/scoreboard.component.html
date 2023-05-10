@@ -1,12 +1,12 @@
 <div class="w100 fl posRel h247 bgScore" [ngStyle]="{'background' : 'url(assets/image/cricket.jpg)'}">
 
-  <button  class="clear-btn" (click)="resetAllVal()">CLEAR</button>
-  <button  *ngIf='liveScoreData.innings == "1"' class="endinning-btn" (click)="endInning()">END
+  <button  mat-raised-button class="clear-btn" (click)="resetAllVal()">CLEAR</button>
+  <button  mat-raised-button *ngIf='liveScoreData.innings == "1"' class="endinning-btn" (click)="endInning()">END
     INNING</button>
   <button *ngIf='liveScoreData.innings == "2"' class="endinning-btn" (click)="endMatch()">END MATCH</button>
-  <button  class="push-btn" (click)="openPushDialog()">PUSH</button>
-  <button  class="refresh-btn" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
-  <button  class="score-btn" (click)="goScoreboard()">EDIT</button>
+  <button mat-raised-button class="push-btn" (click)="openPushDialog()">PUSH</button>
+  <button  mat-raised-button class="refresh-btn" (click)="refresh()"><fa-icon [icon]="refreshs"></fa-icon></button>
+  <button  mat-raised-button class="score-btn" (click)="goScoreboard()">EDIT</button>
   <div class="scoreDiv">
     <div class="w100 fl color_fff tc onlyScore  ">
       <div class="teamScoreDiv">
@@ -27,14 +27,7 @@
       <p class="f12 m0 target" style="font-size: 14px !important;position: relative !important; top: -10px !important;">{{liveScoreData.firstmsg}}</p>
       <p class="f12 m0" style="font-size: 12px; position: relative;top: -11px;">{{liveScoreData.thirdmsg}}</p>
       <p class="crr">CRR : {{liveScoreData.netrunrate}}</p>
-      <div class="f12 m0 " style="position: absolute;
-      font-size: 14px;
-      left: 85px;
-      bottom: 93px;
-      border: solid 2px #00cdff;
-      border-radius: 15%;
-      padding: 0px 4px;
-      background-color: black;">Total-Ov:{{liveScoreData.matchover}}</div>
+      <div class="f12 m0 " class="tov">Total-Ov:{{liveScoreData.matchover}}</div>
       <p class="rrr" *ngIf='liveScoreData.requiredrunrate !== ""'>RR : {{liveScoreData.requiredrunrate}}</p>
     </div>
     <div class='curBatsman w100 fl color_fff'>
@@ -142,12 +135,12 @@
     </div>
     <!-- four btn -->
     <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
-        <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrsefffour}"  (click)='fourchange(4)' style="font-size: 23px !important;" class="fs bbAAA w100 bRad0 posRel">Four = {{fourText}}</button>
-        
+        <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrsefffour}"  (click)='fourchange(4)' style="font-size: 23px !important;    border-right: 1px solid #aaa;
+        " class="fs bbAAA w100 bRad0 posRel">Four = {{fourText}}</button>
     </div>
     <!-- six btn -->
     <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
-      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrseffsix}" (click)='sixChange(6)' style="font-size: 23px !important;" class="fs bbAAA w100 bRad0 posRel">Six = {{sixText}}</button>
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrseffsix}" (click)='sixChange(6)' style="font-size: 23px !important;border-right: 1px solid #aaa;" class="fs bbAAA w100 bRad0 posRel">Six = {{sixText}}</button>
   </div>
    
     <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
@@ -191,7 +184,7 @@
         (click)='openNoBallDialog()'>{{noBallText}}</button>
     </div>
     <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
-      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrsefbye}" style="font-size: 25px !important;" [matMenuTriggerFor]="byeMenu"
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrsefbye}" style="font-size: 25px !important;border-right: 1px solid #aaa;" [matMenuTriggerFor]="byeMenu"
         class="fs bbAAA w100 bRad0 posRel">{{byeText}}</button>
       <mat-menu #byeMenu="matMenu" style="line-height: 3;">
         <button class="boxhw" (click)='byeChange(0)'>0</button>
@@ -206,7 +199,7 @@
       </mat-menu>
     </div>
     <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
-      <button mat-button [ngStyle]="{'height': scoreBtnHeight}" class="bbAAA w100 bRad0 posRel">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight}" class="bbAAA w100 bRad0 posRel" style="border-right: 1px solid #aaa;">
         <span class='lbld2'>Ex</span>
         <input type="number" (mouseup)="$any($event.target).select()" (input)='extraPlus($event)' class=" wids inputNB fl"
           [(ngModel)]='extra'>
@@ -221,12 +214,12 @@
     </div>
     <div class="w100 fl" [ngStyle]="{'height': scoreBtnHeight2}">
       <button  *ngIf='!bowlEdited'  [ngStyle]="{'height': scoreBtnHeight2}"
-        class='bbAAA w100 bRad0 bgGreen colFFF posRel f20 button-77' (click)='addScore("save")'>Save</button>
-        <button mat-button *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute; right:0px;white-space: break-spaces; line-height: 1; font-size: 17px; " [ngStyle]="{'height': scoreBtnHeight}"
-        class='bbAAA w50 bRad0 bgGreen colFFF posRel f20' (click)='addScore("update")'>Update Bowl
+        class='bbAAA w100  bgGreen colFFF posRel f20' mat-raised-button (click)='addScore("save")'>Save</button>
+        <button  mat-raised-button  *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute; right:0px;white-space: break-spaces; line-height: 1; font-size: 17px; " [ngStyle]="{'height': scoreBtnHeight}"
+        class='bbAAA w50  bgGreen colFFF posRel f20' (click)='addScore("update")'>Update Bowl
         {{nextBall}}</button>
-      <button mat-button *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute;  white-space: break-spaces; line-height: 1;font-size: 17px; "[ngStyle]="{'height': scoreBtnHeight}"
-        class='bbAAA w50 bRad0 bgRed colFFF posRel f20' (click)='deleteBowl(editedScoreId)'>Delete Bowl
+      <button  mat-raised-button  *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute;  white-space: break-spaces; line-height: 1;font-size: 17px; "[ngStyle]="{'height': scoreBtnHeight}"
+        class='bbAAA w50  bgRed colFFF posRel f20' (click)='deleteBowl(editedScoreId)'>Delete Bowl
         {{nextBall}}</button>
     </div>
   </div>

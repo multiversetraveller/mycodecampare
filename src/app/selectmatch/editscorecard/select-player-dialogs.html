@@ -1,0 +1,24 @@
+<h1 mat-dialog-title class='textUpper'>SELECT {{type}} </h1>
+<div mat-dialog-content>
+    <mat-form-field class="w100 fl">
+        <mat-label>Select {{type}}</mat-label>
+        <mat-select [(ngModel)]='selectedPlayer'>
+            <mat-option value="{{item.player_id}}" *ngFor='let item of playersTeam'>
+                <div class="w100 fl">
+                    <img class="optImg" [src]='item.player_image'
+                        onerror="src='assets/image/defaultPlayer.png'"><span>{{item.player_name}}</span>
+                </div>
+            </mat-option>
+            <mat-option value="{{item.player_id}}" *ngFor='let item of outedPlayers'>
+                <div class="w100 fl">
+                    <img class="optImg" [src]='item.player_image'
+                        onerror="src='assets/image/defaultPlayer.png'"><span class="colRed">{{item.player_name}}</span>
+                </div>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="dialogOkBtn" (click)="onOkClick()">OK</button>
+    <button mat-button class="dialogCancelBtn" (click)="onCancelClick()">Cancel</button>
+</div>

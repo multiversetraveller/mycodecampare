@@ -1,0 +1,42 @@
+<div class='p15 w100 fl'>
+    <p *ngIf='isNoData' class='no-data-text'>{{noDataMsg}}</p>
+    <div class="w100 fl matchDiv posRel" *ngFor='let item of matchesList'>
+        <div class='result-text' mat-subheader>{{item.result}} ( {{item.match_date}} {{item.timeslot}} )</div>
+        <div class="w100 fl pt10 mb0">
+            <div class="w60p fl">
+                <img [src]="item.team1_img" onerror="src='assets/image/teamimage.png'">
+            </div>
+            <div class="w60 fl ">
+                <p class="m0 lh30 f14 colorRed dot-css" [class.colorGreen]='item.team_1 == item.win'>{{item.team_1}}</p>
+            </div>
+        </div>
+        <div class="w100 fl pt10 mb0">
+            <div class="w60p fl">
+                <img [src]="item.team2_img" onerror="src='assets/image/teamimage.png'">
+            </div>
+            <div class="w60 fl">
+                <p class="m0 lh30 f14 colorRed dot-css" [class.colorGreen]='item.team_2 == item.win'>{{item.team_2}}</p>
+            </div>
+        </div>
+        <div class="w100 fl btCCC">
+            <p class="m0  f14 pr15" style="margin-top: 8px !important;float: right;">
+                <button mat-raised-button color="primary" class='editbtnset'
+                    (click)='matchSelect(item.match_id, item.team1_12, item.team2_12, item.team_1, item.team_2, item.img1, item.img2)'>Edit</button>
+                <button *ngIf='item.freeze !== "on"' mat-raised-button class='scorebtnset'
+                    (click)='scordboard(item.match_id)'>Soc.Board</button>
+                <button *ngIf='item.freeze !== "on"' mat-raised-button color="warn" class='delbtnset'
+                    (click)='deletescoredboard(item.match_id)'> <fa-icon [icon]="delete"></fa-icon>
+                </button>
+                <button mat-raised-button class="whobtnset"
+                    (click)='whowin(item.match_id,item.team1_12, item.team2_12, item.team_1, item.team_2)'>Who-win</button>
+            </p>
+        </div>
+
+
+    </div>
+</div>
+<mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50' style="position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);">
+</mat-progress-spinner>

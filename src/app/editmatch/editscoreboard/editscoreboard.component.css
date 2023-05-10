@@ -1,0 +1,327 @@
+.scoreDiv{position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8);}
+.bgScore{background-size: cover !important;}
+.onlyScore{margin-top: 45px; height: 113px;}
+.firstBatsman{
+    width: 100%;
+    padding: 16px;
+    height: 44px;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+}
+.m01{
+    font-size: 18px;
+    font-weight: 600;
+}
+.secondBatsman{
+    width: 100%;
+    float: left;
+    padding: 16px;
+    border-top: 1px solid #aaa;
+    height: 44px;
+    position: relative;
+}
+.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+ 
+    min-width: 68px !important;
+    border: solid 1px darkgrey;
+    box-sizing: border-box;
+    position: relative;
+    color: #000 !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 101px;
+    padding: 0px 7px;
+    border-radius: 7px !important;
+    overflow: visible;
+    /* display: initial;  */
+    padding: 0px 9px;
+    box-sizing: border-box;
+    border: 2px solid #b0b0b000;
+    box-shadow: rgb(74 73 77 / 70%) 0px 50px 100px -24px, rgb(0 0 0) 0px 30px 60px -31px, rgb(4 15 27 / 62%) 0px -2px 6px 0px inset;
+}
+.inputNB{ 
+    font-size: 25px;
+    text-align: end;
+    color: black;
+    vertical-align: middle;
+    display: flex;
+    top: 0;
+    border: #11457200 3px solid;}
+.wids{
+    width: 100% !important;
+    float: right;
+    height: 100%;
+    background-color: #ed143d00;
+    box-sizing: border-box;
+}
+.lbls{
+    position: absolute;
+    font-size: 25px;
+    left: 0px;
+    bottom: 10px;
+}
+.ballsDiv{background-color: #26373F; padding: 0px 15px; position: relative;}
+.h178{height: 178px;}
+.runByBall p{float: left;height: 34px;width: 34px; background: transparent; color: #000; margin: 5px 5px 10px 0; border-radius: 50%; text-align: center; line-height: 35px; font-size: 14px;}
+.runByBall p span{float: left;
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    box-shadow: rgb(83 83 163 / 72%) 0px 50px 100px -20px, rgb(0 0 0 / 58%) 0px 30px 60px -30px, rgb(10 37 64 / 72%) 0px -2px 6px 0px inset !important;}
+.runByBall p:last-child{margin-right: 0px;} 
+.brAAA{border-right: 1px solid #aaa;} 
+.bbAAA{border-bottom: 1px solid #aaa; font-weight: bolder;} 
+.bgDC{background-color: #DCDFE1;}
+.bgGreen{background-color: green;}
+.colFFF{color: #fff;}
+.customDD ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{height: 0px;}
+.okBtn{width: 50px; background: #3f51b5;color: #fff; height: 30px;}
+input, button{outline: 0;}
+button{border: none;}
+.inputNB.totalruninput{border: none;font-size: 24px; color: green; text-align: center; margin-top: 0px; display: flex; height:100%; text-shadow: 1px 1px 2px #aaa;right: 0;position: absolute; }
+::ng-deep .dialogOkBtn{background: #3f51b5; color: #fff;}
+::ng-deep .dialogCancelBtn{background: red; color: #fff; float: right;}
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{background-color: #3f51b5;}
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{border-color: #3f51b5;}
+.totNbRuns{height: 65.55px;line-height: 55.55px; padding-left: 20px;}
+.whoPlay {position: absolute;left: 10px; top: 10px;}
+.clear-btn {
+    position: absolute;
+    right: 0px;
+    background: red;
+    z-index: 1;
+    height: 30px;
+    color: #fff;
+    padding: 2px;
+    margin: 5px;
+    min-width: 0px !important;
+}
+.loader-div {z-index: 1;height: 100%;width: 100%; background: rgba(0,0,0,0.8);position: absolute; top: 0;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.bName {text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;}
+.optImg{height: 30px; width: 30px; border-radius: 10px; margin-top: 8px; margin-right: 10px; float: left;}
+.textUpper {text-transform: uppercase;}
+.subRunBy {display: flex;width: fit-content;}
+.lbl{position: absolute;left: 0; top: -5px; right: 0;}
+.batsmanChangeBtn {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    color: #fff;
+    font-size: 25px;
+    margin: 5px;
+}
+.bowdet{
+    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 0px;
+    display: flex;
+}
+.cc {    background-color: #0000;
+    color: #fff;
+    min-width: 30px;
+    right: 3px;
+    padding: 0 5px;
+    top: 0;}
+.scorePlayerImg {height: 25px; width: 25px; background: #fff; border-radius: 50%;}
+.bowName {    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;}
+.endinning-btn {position: absolute;right: 153px;top: 4px;background: red;z-index: 1;height: 22px;color: #fff; line-height: 23px; min-width: 53px; padding: 0 5px;}
+::ng-deep .mat-menu-item { height: 35px !important; line-height: 35px !important;}
+.refresh-btn {
+  
+    right: 58px;
+    position: absolute;
+    background: rgb(8, 163, 11);
+    z-index: 1;
+    height: 30px;
+    color: #fff;
+    padding: 6px;
+    margin: 5px;
+    min-width: 0px !important;}
+::ng-deep .mat-option { height: 40px !important;line-height: 50px !important;}
+.wonToss{position: absolute; top: 34px; text-align: center;width: 100%;}
+.crr{ 
+    bottom: 88px;
+       position: absolute;
+       color: #3f51b5;
+       font-weight: 600;
+       z-index: 2;
+       min-width: 0px !important;
+       margin: 5px;
+       width: -moz-fit-content;
+       border-radius: 5px;
+       background-color: #ffffff;
+       padding: 4px;
+       box-shadow: rgb(83 83 163 / 72%) 0px 50px 100px -20px, rgb(0 0 0 / 58%) 0px 30px 60px -30px, rgb(10 37 64 / 72%) 0px -2px 6px 0px inset !important;
+}
+.rrr{ 
+    bottom: 88px;
+    left: 85px;
+    position: absolute;
+    color: #3f51b5;
+    font-weight: 600;
+    z-index: 2;
+    min-width: 0px !important;
+    margin: 5px;
+    width: -moz-fit-content;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 4px;
+    box-shadow: rgb(83 83 163 / 72%) 0px 50px 100px -20px, rgb(0 0 0 / 58%) 0px 30px 60px -30px, rgb(10 37 64 / 72%) 0px -2px 6px 0px inset !important;
+}
+.teamScoreDiv p:first-child{width: 45%; float: left;}
+.teamScoreDiv p:nth-child(2){width: 10%; float: left; text-align: center;}
+.teamScoreDiv p:nth-child(3){width: 45%; float: left;}
+.oTeam{     height: 28px;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+.playerStar{position: absolute; height: 10px;right: 0;top: 26px; left: 12px; margin: auto;}
+.totalOver{
+    position: absolute;
+    color: #3f51b5;
+    font-weight: 600;
+    z-index: 2;
+    min-width: 0px !important;
+    margin: 5px;
+    width: -moz-fit-content;
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 4px;
+    box-shadow: rgb(83 83 163 / 72%) 0px 50px 100px -20px, rgb(0 0 0 / 58%) 0px 30px 60px -30px, rgb(10 37 64 / 72%) 0px -2px 6px 0px inset !important;}
+.wicket{background-color: #e23f40; color: #fff;}
+.wide{background-color: #3fa2e6; color: #fff;}
+.four{background-color: #d3be0b; color: #fff;}
+.six{background-color: #63b762; color: #fff;}
+.noball{background-color: #e23f40; color: #fff;}
+.zero{background-color: #fff;color: rgb(0, 0, 0);}
+.activeBall{background: #000;color: #fff; border: 3px solid green; height: 30px !important; width: 30px !important;line-height: 32px !important;}
+.over-btn{  
+    background: #4aa2e6;
+    color: #fff;
+    height: 30px;
+    margin-top: 88px;
+    position: absolute;
+    right: 0;
+    margin: 5px;
+    bottom: 88px;
+    padding: 2px;}
+.editwicket-btn{
+    right: 88px;
+    background: #4aa2e6;
+    position: absolute;
+    height: 30px;
+    color: #fff;
+    padding: 2px;
+    margin: 5px;
+    min-width: 0px !important;
+    z-index: 1;
+}
+span.totalrun, span.totalrun + input {
+    width: 50% !important;
+    display: flex;
+    height: 100%;
+    text-align: center;
+    top: 0 !important;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ccc;
+}
+::ng-deep .mat-drawer-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.lbld2 {
+    position: absolute;
+    font-size: 25px;
+    left: 0px;
+    bottom: 10px;
+}
+.lbld{
+    position: absolute;
+    font-size: 25px;
+    left: 0px;
+    bottom: 10px;
+}
+.bls{
+    border-left: 1px solid #aaa;
+}
+
+.boxhw{
+    width: 40px;
+    height: 40px;
+    padding: 0px 12px;
+    border-radius: 54%;
+    border: #3f51b569 solid 4px;
+    margin: 0 2.2px;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #91a4e5;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    -webkit-filter: dropshadow(color=#000, offx=0px, offy=1px);
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+    box-shadow: inset 0 0px 0 #99cbf1, 0px 0px 3px 3px #b8d3ff;
+   
+}
+  
+  .boxhw:hover{
+    top:10px;
+    background-color:#25f700;
+    
+    -webkit-box-shadow:inset 0 1px 0 #c6ffc4, inset 0 -3px 0 #009107;
+    -moz-box-shadow:inset 0 1px 0 #cfffc4, inset 0 -3pxpx 0 #009107;
+    box-shadow:inset 0 1px 0 #c6ffc4, inset 0 -3px 0 #009107;
+  }
+  
+  .boxhw:after{
+    content:"";
+    height:100%;
+    width:100%;
+    padding:4px;
+    position: absolute;
+    bottom:-15px;
+    left:-4px;
+    z-index:-1;
+    background-color:#eceff9;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .getlabel{
+    background-color: #ffec04b5;
+    border-radius: 10px;
+    box-shadow: rgb(163 153 83 / 72%) 0px 50px 100px -20px, rgb(0 0 0 / 58%) 0px 30px 60px -30px, rgb(75 65 8 / 72%) 0px -2px 6px 0px inset !important;
+  
+}
+

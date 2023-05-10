@@ -1,0 +1,78 @@
+.full-form{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);padding: 10px;}
+.mat-form-field {width: 46% !important; padding-bottom: 2px;margin-left: 2%; margin-right: 2%;}
+.btn-div button{background: #3f51b5; color: #fff;}
+.label-form{width: 100%;font-size: 20px;font-weight: bolder; padding: 0px; height: 40px;}
+::ng-deep .resize, ::ng-deep .resize-bar {pointer-events: none;}
+.confirm-button{position: absolute; top: 45px; background: green; color: #fff; left: 0px; width: 105px;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.btn {
+  background-color: green;
+  color: #fff;
+}
+.wicket-heading {
+  margin-bottom: 10px;
+  background-color: green;
+  padding: 8px 15px;
+  float: left;
+  width: 100%;
+}
+.wicket-title {
+  font-size: 18px;
+  text-align: left;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 50%;
+  float: left;
+  line-height: 28px;
+}
+.wicket-wrap {
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+.button-wrap {
+  padding: 0 15px 10px;
+}
+.three-wrap{
+  width: 46% !important;
+  float: left;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.mat-form-field.width16 {
+  width: 16% !important;
+}
+.mat-form-field.width58 {
+  width: 58% !important;
+  margin-right: 0;
+}
+.mat-button.removebtn, .mat-button.editbtn {
+  width: auto;
+  min-width: auto;
+  padding: 0 5px;
+  color: #008000;
+  background-color: #fff;
+  line-height: 28px;
+  margin: 0 6px;
+}
+.mat-button.removebtn {
+  color: #ff0000;
+}
+.mat-button .material-icons {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+.wicket-btn {
+  float: right;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-form-field {width: 96% !important;}
+}

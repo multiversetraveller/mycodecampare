@@ -1,5 +1,5 @@
-<div class='p15 w100 fl mb20' [class.mb40]='matchStat == "continue"'>
-    <div class='w100 fl mb20 teamList posRel'>
+<div class='p15 w100 fl mb30' [class.mb40]='matchStat == "continue"'>
+    <div class='w100 fl mb30 teamList posRel'>
         <p class="m0 mb10 teamTitle fCap">{{team1Name}} Players</p>
         <mat-checkbox class='fr selectAllChk' [checked]='isAllPlayersSelected1' (change)=getAllSelectTeam1($event)></mat-checkbox>
       <div class='plr5 fl w100 mb1' *ngFor='let item of onlyListTeam1'>
@@ -11,7 +11,7 @@
         <mat-divider></mat-divider>
       </div>
     </div>
-    <div class='w100 fl mb20 teamList posRel'>
+    <div class='w100 fl mb30 teamList posRel'>
       <p class="m0 mb10 teamTitle fCap">{{team2Name}} Players</p>
       <mat-checkbox class='fr selectAllChk' [checked]='isAllPlayersSelected2' (change)=getAllSelectTeam2($event)></mat-checkbox>
       <div class='plr5 fl w100 mb1' *ngFor='let item of onlyListTeam2'>
@@ -24,14 +24,17 @@
       </div>
     </div>
   </div>
-  <mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50'>
+  <mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50' style="position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);">
   </mat-progress-spinner>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <button mat-button *ngIf='matchStat == "continue"' class='btnGoScoreboard' (click)='goScoreboard()'>Go Scoreboard</button>
+        <button mat-raised-button *ngIf='matchStat == "continue"' class='btnGoScoreboard' (click)='goScoreboard()'>Go Scoreboard</button>
     
-        <button mat-button class='btnNext' (click)='goToss()'>Next</button>    
+        <button mat-raised-button class='btnNext' (click)='goToss()'>Next</button>    
       </div>
   </div>
   

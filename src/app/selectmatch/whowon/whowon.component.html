@@ -1,0 +1,47 @@
+<div class='p15 w100 fl'>
+    <div class="w100 fl ">
+        <p class="tt">WHO WON : </p>
+    </div>
+
+    <mat-form-field class="example-full-width ">
+        <mat-label>Select Team</mat-label>
+        <mat-select [(ngModel)]='selectedTeam'>
+            <mat-option value="{{team1Name}}">{{team1Name}}</mat-option>
+            <mat-option value="{{team2Name}}">{{team2Name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width ">
+        <input matInput placeholder="Won By" [(ngModel)]='wonByText'>
+    </mat-form-field>
+
+    <div class="w100 fl ">
+        <p class="tt">MAN OF THE MATCH : </p>
+    </div>
+
+    <mat-form-field class="w100 fl">
+        <mat-label>Select Player</mat-label>
+        <mat-select [(ngModel)]='selectedPlayer'>
+            <mat-option value="{{item.name}} {{item.fathername}} {{item.surname}}" *ngFor='let item of onlyListTeam1'>
+                <div class="w100 fl">
+                    <img class="optImg" [src]='item.image'
+                        onerror="src='assets/image/defaultPlayer.png'"><span>{{item.name}} {{item.fathername}}
+                        {{item.surname}}</span>
+                </div>
+            </mat-option>
+            <mat-option value="{{item.name}} {{item.fathername}} {{item.surname}}" *ngFor='let item of onlyListTeam2'>
+                <div class="w100 fl">
+                    <img class="optImg" [src]='item.image'
+                        onerror="src='assets/image/defaultPlayer.png'"><span>{{item.name}} {{item.fathername}}
+                        {{item.surname}}</span>
+                </div>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="loader-div" *ngIf='isLoaderShow'>
+        <mat-progress-spinner mode='indeterminate' diameter='50'  style="position: absolute; left: -50%; top:-50%; transform: translate(-50%,-50%);">
+        </mat-progress-spinner>
+    </div>
+</div>
+<button mat-raised-button class='btnNext' (click)='finishMatch()'>SAVE</button>

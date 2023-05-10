@@ -48,14 +48,14 @@ export class AddplayerComponent implements OnInit {
   txtOfficeMobile = '';
   txtNative = '';
   bidvalue = '';
-  playerclass = '';
-  bidstatus:any = '';
+  playerclass = 'Normal';
+  bidstatus = '1';
   playername = '';
   fathername = '';
   surname = '';
   txtplayerBdate: any;
   playerAge = 0;
-  maritalatatus = '';
+  maritalatatus = 'Single';
   playeremail = '';
   playermobno = '';
   weastsize = '';
@@ -67,8 +67,8 @@ export class AddplayerComponent implements OnInit {
   Batsman = '';
   WicketKeeper = '';
   selectedTeam = '';
-  BowlerType = '';
-  Batsman_Type = '';
+  BowlerType = 'spinner';
+  Batsman_Type = 'lefthand';
   playerId: any;
   isLoaderShow = false;
   trade: any;
@@ -77,9 +77,12 @@ export class AddplayerComponent implements OnInit {
   imageQuality = 70;
   resizeToWidth = 256;
   resizeToHeight = 256;
-  seasons: string[] = ['Bid', 'Unbid'];
   playerc: string[] = ['Normal', 'Star'];
   mStatus: string[] = ['Single', 'Married'];
+  regid: any;
+  msgnote: any;
+  colorcode: any;
+  getresult: any;
 
 
   constructor(private serviceService: ApiservicesService, public  router: Router, public route: ActivatedRoute) { }
@@ -94,13 +97,31 @@ export class AddplayerComponent implements OnInit {
       this.getPlayerById();
     // }
       this.getTeamdetail();
+      this.serviceService.getregid().subscribe(
+        (data:any) => {
+          this.registeno = data['reg_id'];
+        }
+      )
   }
-
+checkregids(id:any){
+  console.log(id)
+  this.serviceService.checkregid(id).subscribe(
+    (data:any) =>{
+      this.getresult = data['flag'];
+     if(data['flag'] == false){
+      this.msgnote = data['msg'];
+      this.colorcode = '#089508';
+     }else{
+      this.msgnote = data['msg'];
+      this.colorcode = '#ff0000';
+     }
+    }
+  )
+}
   getPlayerById() {
     this.isLoaderShow = true;
     this.serviceService.getPlayerById(this.playerId).subscribe(
       (data:any) => {
-        console.log(data);
         this.isLoaderShow = false;
         this.serviceService.getBase64Photo(data['player_image']).then((image:any) => {
           this.playerImage = image['base64'];
@@ -292,8 +313,6 @@ allTrades(event:any) {
   };
    if (this.playername === '' || this.playername == null || this.playername === undefined) {
     this.serviceService.openSnackBar('Please Enter Player Name', 'Close');
-   } else if (this.bidstatus === '' || this.bidstatus == null || this.bidstatus === undefined) {
-    this.serviceService.openSnackBar('Please Enter Bid Status', 'Close');
    } 
    else {
     this.isLoaderShow = true;
@@ -308,16 +327,21 @@ allTrades(event:any) {
           this.serviceService.openSnackBar('Some Error During Update Team', 'Close');
         });
     } else {
-
-    this.serviceService.addNewPlayer(playerArray)
-    .subscribe( (data:any) => {
-      this.serviceService.openSnackBar('Player Added Successfully', 'Close');
-      this.router.navigate(['/players']);
-    },
-    (error:any) => {
-      this.isLoaderShow = false;
-      this.serviceService.openSnackBar('Some Error During Add Player', 'Close');
-    });
+if(this.getresult == false){
+  this.serviceService.addNewPlayer(playerArray)
+  .subscribe( (data:any) => {
+    this.serviceService.openSnackBar('Player Added Successfully', 'Close');
+    this.router.navigate(['/players']);
+  },
+  (error:any) => {
+    this.isLoaderShow = false;
+    this.serviceService.openSnackBar('Some Error During Add Player', 'Close');
+  });
+}else{
+  this.serviceService.openSnackBar('Registration id not available', 'Close');
+  this.isLoaderShow = false;
+}
+    
   }
   }
 }

@@ -1,0 +1,105 @@
+.btnNext {
+    background-color: #3f51b5;
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+}
+
+.matchDiv {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.matchDiv img {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+.editbtnset{
+    margin: 5px; min-width: 0px !important;    padding: 10px;
+}
+.scorebtnset{
+    background-color: #059705 !important; color: white !important;margin: 0px; min-width: 0px !important; padding: 10px;
+}
+.delbtnset{
+    margin: 5px; min-width: 0px !important;    padding: 10px;
+}
+.whobtnset{
+    background-color: #428cee !important;color: white !important; min-width: 0px !important;    padding: 10px;
+}
+
+.btnwin {
+    right: 211px;
+    background-color: rgb(48, 117, 236);
+}
+
+.date-div {
+    position: absolute;
+    right: 0;
+    width: 88px;
+    text-align: center;
+}
+
+.date-div p:first-child {
+    margin: 0;
+    font-size: 45px;
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+.date-div p:nth-child(2) {
+    margin: 0;
+}
+
+.active {
+    color: green !important;
+}
+
+.activeBtn {
+    background-color: green;
+}
+
+.no-data-text {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.result-text {
+    padding-left: 12px;
+    height: 30px;
+    line-height: 30px;
+    background: #3f51b5;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+.btnStart.btnscoreboard {
+    right: 60px;
+    background-color: green;
+}
+
+.btnStart.btndeletescore {
+    right: 0;
+    background-color: #3f51b5;
+}
+
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+    min-width: 50px !important;
+}

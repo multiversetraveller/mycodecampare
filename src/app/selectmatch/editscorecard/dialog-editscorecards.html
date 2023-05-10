@@ -1,0 +1,59 @@
+
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Inning 1
+        </mat-panel-title>
+        <mat-panel-description>
+         {{panelOpenState ? '' : ''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-card class="example-card" style="margin-top: 15px;" *ngFor='let item of inning1_overs'>
+        <mat-card-content>
+          <mat-card-actions>
+            <button  class="button-83" role="button" (click)='editover(item,1)' >
+              <img style="width: 31px;" src="https://demo.vthinksolution.com/cricket/admin/angular/angularsocket/assets/image/edit.png"/>
+            </button>
+            <mat-card-title class="button-85">Over {{1+item}}</mat-card-title>
+            <button  class="button-84" role="button" (click)='deleteallover(item,1)'>
+              <img style="width: 31px;" src="https://demo.vthinksolution.com/cricket/admin/angular/angularsocket/assets/image/delete.png"/>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Inning 2
+        </mat-panel-title>
+        <mat-panel-description>
+         {{panelOpenState ? '' : ''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-card class="example-card" style="margin-top: 15px;" *ngFor='let item of inning2_overs'>
+        <mat-card-content>
+          <mat-card-actions>
+            <button   class="button-83" role="button" (click)='editover(item,2)' >Edit Over
+              <img style="width: 31px;" src="https://demo.vthinksolution.com/cricket/admin/angular/angularsocket/assets/image/edit.png" />
+            </button>
+            <mat-card-title class="button-85">Over {{item + 1}}</mat-card-title>
+            <button  class="button-84" role="button" (click)='deleteallover(item,2)'>Delete Over
+              <img style="width: 31px;" src="https://demo.vthinksolution.com/cricket/admin/angular/angularsocket/assets/image/delete.png" />
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+

@@ -1,0 +1,89 @@
+<div class='w100 p15 fl h100'>
+    <div class="label-form">
+      <label>Edit Wicket</label>
+    </div>
+    <div class="example-form">
+      <div class="example-full-width wicket-wrap" cellspacing="0" *ngFor='let col of innfirstbatsmens; let i = index'>
+        <div class="wicket-heading">
+          <div class="wicket-title">Wicket: {{ col.wiketnumber }}</div>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman Name</mat-label>
+          <mat-select [(value)]="col.batsman_id">
+            <mat-option>Select batsman </mat-option>
+            <mat-option *ngFor='let item of allbatsman' [value]="item.batsmanid">{{item.batsmanname}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bowler Name</mat-label>
+          <mat-select [(value)]="col.bowler_id">
+            <mat-option>Select bowler </mat-option>
+            <mat-option *ngFor='let item of allbowler' [value]="item.bowlerid">{{item.bowlername}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="three-wrap">
+          <mat-form-field class="example-full-width width16">
+            <mat-label>Over</mat-label>
+            <input matInput [(ngModel)]="col.over">
+          </mat-form-field>
+          <mat-form-field class="example-full-width width16">
+            <mat-label>Run</mat-label>
+            <input matInput [(ngModel)]="col.run">
+          </mat-form-field>
+          <mat-form-field class="example-full-width width58">
+            <mat-label>Wicket Type</mat-label>
+            <mat-select [(ngModel)]='col.wicket_type'>
+              <mat-option value="b">
+                <span>Bold</span>
+              </mat-option>
+              <mat-option value="c">
+                <span>Catch Out</span>
+              </mat-option>
+              <mat-option value="hw">
+                <span>Hit Wicket</span>
+              </mat-option>
+              <mat-option value="lb">
+                <span>LBW</span>
+              </mat-option>
+              <mat-option value="r">
+                <span>Run Out</span>
+              </mat-option>  
+              <mat-option value="st">
+                <span>Stumping</span>
+              </mat-option>
+              <mat-option value="retired">
+                <span>Retired</span>
+              </mat-option>
+              <mat-option value="retiredhurt">
+                <span>Retired Hurt</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Wicket By</mat-label>
+          <mat-select [(value)]="col.wicket_by">
+            <mat-option>Select Player </mat-option>
+            <mat-option *ngFor='let item of allbowler' [value]="item.bowlerid">{{item.bowlername}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="wicket-btn">
+          <button mat-button class="btn fl editbtn" (click)='updateWicket(col.wicketid, col.batsman_id, col.bowler_id, col.over, col.run, col.wicket_type, col.wicket_by)'>
+            <mat-icon class='menuIcon'>create</mat-icon>
+          </button>
+          <button mat-button class="btn fr removebtn" (click)='deleteWicket(col.wicketid)'>
+            <mat-icon class='menuIcon'>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div> 
+    <div class='btn-div p15 fl w100'>
+      <button mat-raised-button color="primary" class="btn-save fl" (click)="goScoreboard()">
+        Go to Scoreboard
+      </button>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div> 

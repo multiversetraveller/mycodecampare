@@ -53,14 +53,12 @@ selectedArray: any[] = [];
     this.serviceService.getUserById(this.admin_id)
     .subscribe(
       (data:any) => {
-        console.log(data);
-        console.log(data.data[0]['admin_username']);
         this.isLoaderShow = false;
-        this.txtUserName = data.data[0]['admin_username'];
-        this.txtUserEmail = data.data[0]['admin_email'];
-        this.txtPassword = data.data[0]['admin_pass'];
-        this.txtUserType = data.data[0]['admin_type'];
-        this.nameper1 = data.data[0]['menus'];
+        this.txtUserName = data['admin_username'];
+        this.txtUserEmail = data['admin_email'];
+        this.txtPassword = data['admin_pass'];
+        this.txtUserType = data['admin_type'];
+        this.nameper1 = data['menus'];
         this.nameper1 = this.nameper1.split(',');
           for (const item of this.nameper1) {
             this.selectedArray.push(item);

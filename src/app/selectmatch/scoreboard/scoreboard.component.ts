@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiservicesService } from 'src/app/apiservices.service';
 import * as _ from 'lodash';
 import { LivescoreService } from 'src/app/livescore.service';
+import { faRefresh } from '@fortawesome/free-solid-svg-icons';
+
 export interface DialogData {
   team1_wicket: any;
   team1_over: any;
@@ -28,6 +30,7 @@ export interface DialogData {
   batsman1: any;
   animal: string;
   name: string;
+
 }
 @Component({
   selector: 'app-scoreboard',
@@ -99,6 +102,7 @@ export class ScoreboardComponent implements OnInit {
   lastballs: any;
   setfalse!: boolean;
   undoball!: string;
+  refreshs = faRefresh;
   // secondmsg:any;
   // team1_score:any;
   // team1_over:any;

@@ -1,0 +1,37 @@
+<div class='p15 w100 fl mb40'>
+    <div class='w100 fl mb20 teamList posRel'>
+        <p class="m0 mb10 teamTitle fCap">{{team1Name}} Players</p>
+        <mat-checkbox class='fr selectAllChk' [checked]='isAllPlayersSelected1' (change)=getAllSelectTeam1($event)></mat-checkbox>
+      <div class='plr5 fl w100 ' *ngFor='let item of onlyListTeam1'>
+        <div class='team_div'>
+          <mat-checkbox class='fr singleChk' [checked]='item.isSelected' color='primary' value="{{item.player_id}}" (change)="getValue1($event)" *ngIf='selectedAllTeam1 == false'></mat-checkbox>
+          <img [src]='item.player_image' onerror="src='assets/image/defaultPlayer.png'" />
+          <p>{{item.name}} {{item.surname}}</p>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+    <div class='w100 fl mb20 teamList posRel'>
+      <p class="m0 mb10 teamTitle fCap">{{team2Name}} Players</p>
+      <mat-checkbox class='fr selectAllChk' [checked]='isAllPlayersSelected2' (change)=getAllSelectTeam2($event)></mat-checkbox>
+      <div class='plr5 fl w100 ' *ngFor='let item of onlyListTeam2'>
+        <div class='team_div'>
+          <mat-checkbox class='fr singleChk' [checked]='item.isSelected' color='primary' value="{{item.player_id}}" (change)="getValue2($event)" *ngIf='selectedAllTeam2 == false'></mat-checkbox>
+          <img [src]='item.player_image' onerror="src='assets/image/defaultPlayer.png'" />
+          <p>{{item.name}} {{item.surname}}</p>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <button mat-raised-button class='btnNext' (click)='goToss()'>Next</button>
+    </div>
+  </div>
+  <mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50' style="position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);">
+  </mat-progress-spinner>
+  
+   
+  

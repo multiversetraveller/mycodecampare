@@ -15,14 +15,41 @@ export class ApiservicesService {
    ) { }
 
   /**
-   * Get tournament lists
+   * Get tournament list
    * @param searchname searchname
    */
   getGlobalSeries(searchname: string): any {
     const URL = `${window.localStorage.getItem('apiUrl')}get_tournament.php?tourpermission=all&name=${searchname}&tid=${window.localStorage.getItem('t_id')}`;
     return this.http.get(URL);
   }
+ /**
+   * Get All Overs by match Id
+   * @param matchId matchId
+   */
+ getOvers(matchId:any) {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}getoversbymatch.php?series=${series}&match_id=${matchId}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
+}
 
+  /**
+   * Update Bowler Of Over
+   * @param bowlerId bowlerId
+   * @param matchId matchId
+   * @param inning inning
+   * @param over over
+   */
+  updateBowlerOfOver(bowlerId: any, matchId: any, inning: any, over: any) {
+    const URL = `${window.localStorage.getItem('apiUrl')}updatebowlerofover.php?tid=${window.localStorage.getItem('t_id')}`;
+    const data = {
+      series: window.localStorage.getItem('selectedSeries'),
+      match_id: matchId,
+      bowler_id: bowlerId,
+      inning: inning,
+      over: over
+    };
+    return this.http.post(URL, data);
+  }
     /**
    * Get series list of particular tournament
    * @param type type
@@ -78,7 +105,16 @@ getLiveScore(matchId: string) {
       `match_id=${matchId}&tid=${window.localStorage.getItem('t_id')}`;
     return this.http.get(URL);
   }
-
+  editselectToss(match_id: string, toss_win: string, elect_to: string) {
+    const URL = `${window.localStorage.getItem('apiUrl')}editselect_toss.php`;
+    const data = {
+      series: window.localStorage.getItem('selectedSeries'),
+      match_id: match_id,
+      toss_win: toss_win,
+      elect_to: elect_to
+    };
+    return this.http.post(URL, data);
+  }
     /**
    * register striker, non-striker and bowler
    * @param match_id match_id
@@ -87,7 +123,7 @@ getLiveScore(matchId: string) {
    * @param inning inning
    */
   selectStrikers(match_id: string, chk_team1: any, chk_team2: any, inning: number) {
-    const URL = `${window.localStorage.getItem('apiUrl')}select_strikers.php?tid=${window.localStorage.getItem('t_id')}`;
+    const URL = `${window.localStorage.getItem('apiUrl')}select_strikers.php&tid=${window.localStorage.getItem('t_id')}`;
     const data = {
       series: window.localStorage.getItem('selectedSeries'),
       match_id: match_id,
@@ -110,7 +146,7 @@ getLiveScore(matchId: string) {
     sendAndroidPush(message: any) {
       // const URL = `${window.localStorage.getItem('apiUrl')}androidPush.php`;
       const series = window.localStorage.getItem('selectedSeries');
-      const URL = `https://demo.vthinksolution.com/cricket/cric_new/services/scoringapp/push.php?series=${series}&tid=${window.localStorage.getItem('t_id')}`;
+      const URL = `https://demo.vthinksolution.com/cricket/cric/services/scoringapp/push.php?series=${series}&tid=${window.localStorage.getItem('t_id')}`;
       const data = {
         // tour_type: window.localStorage.getItem('tourType'),
         // series: window.localStorage.getItem('selectedSeries'),
@@ -758,6 +794,12 @@ changeBatsman(playerId: string, matchId: string, position: number) {
       (response) => response
     ));
   }
+  getBallsByOver(matchId: any, over: any, inning: any) {
+    const series = window.localStorage.getItem('selectedSeries');
+    const URL = `${window.localStorage.getItem('apiUrl')}getallballbyover.php?series=${series}&match_id=${matchId}` +
+      `&over=${over}&inning=${inning}`;
+    return this.http.get(URL);
+  }
 
   UNbid(playertype: any, playeron: string, roundtext: any) {
     const series = window.localStorage.getItem('selectedSeries');
@@ -798,7 +840,6 @@ changeBatsman(playerId: string, matchId: string, position: number) {
     return this.http.post(URL, data)
   }
 
-  
   whatsaapmsg(regi_no: string, team: any, amt: number) {
     const series = window.localStorage.getItem('selectedSeries');
     const URL = `${window.localStorage.getItem('apiUrl')}whatsapp_api.php?regid=${regi_no}&team=${team}&amt=${amt}&series=${series}&tid=${window.localStorage.getItem('t_id')}`;
@@ -831,5 +872,80 @@ changeBatsman(playerId: string, matchId: string, position: number) {
     const URL = `${window.localStorage.getItem('apiUrl')}get_livetv_bidding.php?series=${series}&tid=${window.localStorage.getItem('t_id')}`;
     return this.http.get(URL);
 
+}
+getCompletedMatches() {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}get_matches.php?series=${series}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
+}
+editscordboard(matchid:any) {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}score_prod.php?series=${series}&` +
+    `match_id=${matchid}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
+}
+deletescoredboard(matchid:any) {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}del_score.php?series=${series}&` +
+    `match_id=${matchid}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
+}
+
+ /**
+   * End of Match and declare winner and man of the match
+   * @param matchId matchId
+   * @param team team
+   * @param win win
+   * @param loss loss
+   * @param mom mom
+   */
+ finishMatch(matchId: string, team: string, win: string, loss: string, mom: string) {
+  const URL = `${window.localStorage.getItem('apiUrl')}endmatch.php?tid=${window.localStorage.getItem('t_id')}`;
+  const data = {
+    series: window.localStorage.getItem('selectedSeries'),
+    match_id: matchId,
+    team: team,
+    win: win,
+    loss: loss,
+    mom: mom
+  };
+  return this.http.post(URL, data);
+}
+
+deleteWicket(wicketid: any) {
+  const URL = `${window.localStorage.getItem('apiUrl')}del_wicket.php?tid=${window.localStorage.getItem('t_id')}`;
+  const data = {
+    series: window.localStorage.getItem('selectedSeries'),
+    wicket_id: wicketid
+  };
+  return this.http.post(URL, data);
+}
+
+updateWicket(data:any) {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}save_wicket.php?series=${series}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.post(URL, data);
+}
+getWicketData(matchid: any, team1: any, team2: any, innings: any) {
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}getwicketsdata.php?series=${series}&` +`match_id=${matchid}&team1=${team1}&team2=${team2}&inning=${innings}&tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
+}
+updateSingleBowl_past(data:any) {
+  const URL = `${window.localStorage.getItem('apiUrl')}updatesinglrbolwer_past.php?tid=${window.localStorage.getItem('t_id')}`;
+  return this.http.post(URL, data);
+}
+
+getregid(){
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}get_regid.php?series=${series}&tour_id=${window.localStorage.getItem('t_id')}`
+  return this.http.get(URL);
+
+}
+
+checkregid(id:any){
+  const series = window.localStorage.getItem('selectedSeries');
+  const URL = `${window.localStorage.getItem('apiUrl')}check_availability.php?series=${series}&regi_id=${id}&tour_id=${window.localStorage.getItem('t_id')}`;
+  return this.http.get(URL);
 }
 }
