@@ -1,0 +1,44 @@
+<div class='w100 p15 fl h100'>
+    <div class="label-form">
+      <label>Sponsor Member Detail</label>
+    </div>
+    <div class="example-form">
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]='txtUserName' required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]='txtUserEmail' required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]='txtPassword'>
+        </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Type</mat-label>
+        <mat-select [(ngModel)]="txtUserType">
+          <mat-option>Select Type</mat-option>
+          <mat-option value="A">Admin</mat-option>
+          <mat-option value="S">Super Admin</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    </div>
+    <div class="label-form">
+      <label>Menu</label>
+    </div>
+    <div *ngFor="let member of testList" class="testlist">
+        <p><mat-checkbox  [checked]='member.isSelected' (change)="selectMember($event)" value="{{member.CName}}" class="check-space">{{member.CName}}</mat-checkbox></p>
+    </div>
+    
+    <div class='btn-div btn-dsn'>
+      <button mat-raised-button  (click)="back()">
+        BACK
+      </button>
+      <button mat-raised-button (click)="save()" class=" fr">
+        SAVE
+      </button>
+    </div>
+</div>

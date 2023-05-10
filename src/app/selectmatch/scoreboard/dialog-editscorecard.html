@@ -1,0 +1,60 @@
+
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Inning 1
+        </mat-panel-title>
+        <mat-panel-description>
+        {{totalrun_inning1}}/{{total_team1over}} {{panelOpenState ? '' : ''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-card class="example-card" style="margin-top: 15px;" *ngFor='let item of inning1_overs'>
+        <mat-card-title>Over {{item + 1}}</mat-card-title>
+        <mat-card-content>
+          <mat-card-actions>
+            <button  mat-stroked-button (click)='editover(item)' >Edit Over
+              <mat-icon style="color:#0070ff;" class="iconss">edit</mat-icon>
+            </button>
+            <button mat-stroked-button (click)='deleteallover(item)'>Delete Over
+              <mat-icon class="iconss">delete_forever</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Inning 2
+        </mat-panel-title>
+        <mat-panel-description>
+        {{totalrun_inning1}}/{{total_team2over}} {{panelOpenState ? '' : ''}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-card class="example-card" style="margin-top: 15px;" *ngFor='let item of inning2_overs'>
+        <mat-card-title>Over {{item + 1}}</mat-card-title>
+        <mat-card-content>
+          <mat-card-actions>
+            <button  mat-stroked-button (click)='editover(item)' >Edit Over
+              <mat-icon style="color:#0070ff;" class="iconss">edit</mat-icon>
+            </button>
+            <button mat-stroked-button (click)='deleteallover(item)'>Delete Over
+              <mat-icon class="iconss">delete_forever</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  

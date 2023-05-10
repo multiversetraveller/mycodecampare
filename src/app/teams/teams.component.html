@@ -1,0 +1,72 @@
+<div class='p15 w100 fl'>
+    <button mat-flat-button class="btn mb20" (click)='teamAdd()'>Add New Team</button>
+    <div class="w100 fl tableDiv">
+      <mat-form-field class="example-form-field searchmat"  >
+        <mat-label>Search</mat-label>
+        <mat-icon matSuffix style="float: left;">search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" [(ngModel)]="value" placeholder="">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </div>
+    <div class="w100 fl oAuto tableDiv">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="no" sticky>
+          <th mat-header-cell *matHeaderCellDef> No </th>
+          <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.no}} </td>
+        </ng-container>
+  
+        
+        <ng-container matColumnDef="teamImage">
+          <th mat-header-cell *matHeaderCellDef> Team Image </th>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="element.teamImage" class="teamimage" onError="src = 'assets/image/defaultteam.png'">
+          </td>
+        </ng-container>
+  
+        
+        <ng-container matColumnDef="teamName">
+          <th mat-header-cell *matHeaderCellDef> Team Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.teamName}} </td>
+        </ng-container>
+  
+       
+        <ng-container matColumnDef="ownerName">
+          <th mat-header-cell *matHeaderCellDef> Owner Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.ownerName}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="teamType">
+          <th mat-header-cell *matHeaderCellDef> Team Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.teamType}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="createdDate">
+          <th mat-header-cell *matHeaderCellDef> CreatedDate </th>
+          <td mat-cell class='w75p' *matCellDef="let element"> {{element.createdDate}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" style="margin: 5px;" (click)='editTeam(element.action)'>Edit</button>
+            <button mat-flat-button color="warn" (click)='deleteTeam(element.action)'>Delete</button>
+          </td>
+  
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]='[25, 50, 100, 200]' showFirstLastButtons></mat-paginator>
+    </div>
+    <div class="w100 fl tableDiv">
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50' style="position: absolute; left: -50%; top:-50%; transform: translate(-50%,-50%);">
+      </mat-progress-spinner>
+    </div>
+  </div>

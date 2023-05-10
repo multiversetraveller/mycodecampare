@@ -1,0 +1,24 @@
+.btnNext{background-color: #3f51b5;color: #fff; width: 100%; position: fixed; left: 0; bottom: 0; height:50px;}
+.matchDiv{box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset; background-color: #fff; margin-bottom: 10px;}
+.matchDiv img{height: 30px;width: 30px; margin: auto; display: block; border-radius: 10px;}
+.btnStart{    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    background-color: #3f51b5 !important; color: white !important;}
+.date-div{position: absolute; right: 0; width: 88px; text-align: center;}
+.date-div p:first-child{margin: 30px;font-size: 45px; font-weight: bold; color: #3f51b5;}
+.date-div p:nth-child(2){    margin: -5px auto;
+    font-size: large;
+    right: 12px;
+    position: absolute;}
+.active {color: green !important;}
+.activeBtn {background-color: green !important; 
+}
+.alert{    margin-bottom: 10px;
+
+    background-color: #ffa7a775;
+    text-align: center;
+    border-radius: 5px;
+    border: #faa5a5 solid 1px;
+    line-height: 0.1;
+}

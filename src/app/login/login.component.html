@@ -1,0 +1,20 @@
+<div class="w100 fl p15" >
+    <div class="logInForm">
+      <mat-form-field>
+        <mat-label>Select Series</mat-label>
+        <mat-select [(ngModel)]='selectedSeries'>
+          <mat-option *ngFor='let item of series_info' [value]="item.series">
+            {{item.series}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [(ngModel)]='email' (keyup.enter)='logIn()'>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" (keyup.enter)='logIn()' [(ngModel)]='password'>
+      </mat-form-field>
+      <button mat-button class="fr frr" (click)='logIn()'>Login</button>
+      <mat-checkbox color="primary" [(ngModel)]='isRememberme'>Remember me!</mat-checkbox>
+    </div>
+  </div>

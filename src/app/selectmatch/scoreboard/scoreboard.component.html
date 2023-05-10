@@ -1,0 +1,237 @@
+<div class="w100 fl posRel h247 bgScore" [ngStyle]="{'background' : 'url(assets/image/cricket.jpg)'}">
+
+  <button  class="clear-btn" (click)="resetAllVal()">CLEAR</button>
+  <button  *ngIf='liveScoreData.innings == "1"' class="endinning-btn" (click)="endInning()">END
+    INNING</button>
+  <button *ngIf='liveScoreData.innings == "2"' class="endinning-btn" (click)="endMatch()">END MATCH</button>
+  <button  class="push-btn" (click)="openPushDialog()">PUSH</button>
+  <button  class="refresh-btn" (click)="refresh()"><mat-icon>refresh</mat-icon></button>
+  <button  class="score-btn" (click)="goScoreboard()">EDIT</button>
+  <div class="scoreDiv">
+    <div class="w100 fl color_fff tc onlyScore  ">
+      <div class="teamScoreDiv">
+        <p class="m0 mb10">
+          <span class="f16 w100 fl pl5 oTeam">{{liveScoreData.team1}} <div class="yellow getlabel"
+              *ngIf='liveScoreData.innings == "1"'></div></span>
+          <span class="f30  ">{{liveScoreData.team1_score}}/{{liveScoreData.team1_wicket}} </span>
+          <span class="f28">({{liveScoreData.team1_over}})</span>
+        </p>
+        <p>VS</p>
+        <p class="m0 mb10">
+          <span class="f16 w100 fl pr5 oTeam" >{{liveScoreData.team2}} <div class="yellow getlabel"
+              *ngIf='liveScoreData.innings == "2"'></div></span>
+          <span class="f30">{{liveScoreData.team2_score}}/{{liveScoreData.team2_wicket}} </span>
+          <span class="f28 pr5">({{liveScoreData.team2_over}})</span>
+        </p>
+      </div>
+      <p class="f12 m0 target" style="font-size: 14px !important;position: relative !important; top: -10px !important;">{{liveScoreData.firstmsg}}</p>
+      <p class="f12 m0" style="font-size: 12px; position: relative;top: -11px;">{{liveScoreData.thirdmsg}}</p>
+      <p class="crr">CRR : {{liveScoreData.netrunrate}}</p>
+      <div class="f12 m0 " style="position: absolute;
+      font-size: 14px;
+      left: 85px;
+      bottom: 93px;
+      border: solid 2px #00cdff;
+      border-radius: 15%;
+      padding: 0px 4px;
+      background-color: black;">Total-Ov:{{liveScoreData.matchover}}</div>
+      <p class="rrr" *ngIf='liveScoreData.requiredrunrate !== ""'>RR : {{liveScoreData.requiredrunrate}}</p>
+    </div>
+    <div class='curBatsman w100 fl color_fff'>
+      <div class="firstBatsman" [ngClass]='{"yellow": liveScoreData.bastman1_id==liveScoreData.strike}'>
+        <!-- <div class="w30p fl posRel" (click)='changeStrike(liveScoreData.bastman1_id)'>
+          <img class="scorePlayerImg mt9" [src]='liveScoreData.bastman1_img'
+            onerror="src='assets/image/defaultPlayer.png'">
+          <img src="assets/image/star.gif" *ngIf='liveScoreData.bastman1_id==liveScoreData.strike' class='playerStar' />
+        </div> -->
+        <div class="w63 fl">
+          <p class="lh20 m0  bName" style="font-size: 15px !important;display: flex;line-height: 1.5;    font-weight: 800;
+          " (click)='changeStrike(liveScoreData.bastman1_id)'>
+            <mat-icon style="line-height: 1; background-color: aliceblue;color: black;  display: flex; border-radius: 10px;">keyboard_arrow_right</mat-icon>
+            &nbsp;&nbsp;{{liveScoreData.bastman1_name}}
+          </p>
+          <p class="m0 f14 m01" style="float:right;"  (click)='changeStrike(liveScoreData.bastman1_id)'>
+            {{liveScoreData.bastman1_run}}({{liveScoreData.bastman1_ball}})</p>
+      
+            <mat-icon class='batsmanChangeBtn'  (click)='openSelectPlayerDialog("batsman1")' >settings</mat-icon>
+        
+        </div>
+      </div>
+
+      <div class="secondBatsman" [ngClass]='{"yellow": liveScoreData.bastman2_id==liveScoreData.strike}'>
+        <!-- <div class="w30p fl posRel" (click)='changeStrike(liveScoreData.bastman2_id)'>
+          
+          <img class="scorePlayerImg mt9" [src]='liveScoreData.bastman2_img'
+            onerror="src='assets/image/defaultPlayer.png'">
+          <img src="assets/image/star.gif" class='playerStar' *ngIf='liveScoreData.bastman2_id==liveScoreData.strike' />
+        </div> -->
+        <div class="w63 fl">
+          <p class="lh20 m0  bName" style="font-size: 15px !important;display: flex;line-height: 1.5;    font-weight: 800;
+          " (click)='changeStrike(liveScoreData.bastman2_id)'>
+          <mat-icon style="line-height: 1;background-color: aliceblue;display: flex;    color: black;border-radius: 10px;">keyboard_arrow_right</mat-icon> &nbsp;&nbsp;{{liveScoreData.bastman2_name}}
+          </p>
+          <p class="m0 m01 f14" style="float:right;" (click)='changeStrike(liveScoreData.bastman2_id)'>
+            {{liveScoreData.bastman2_run}}({{liveScoreData.bastman2_ball}})</p>
+          <mat-icon class='batsmanChangeBtn'  (click)='openSelectPlayerDialog("batsman2")' >settings</mat-icon>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="w100 fl ballsDiv color_fff">
+  <div class="w100 fl">
+    <div class="w80 fl">
+      <!-- <div class="w30p fl">
+        <img class="scorePlayerImg" [src]='liveScoreData.bowler_img' onerror="src='assets/image/defaultPlayer.png'">
+      </div> -->
+      <div class="w85 fl">
+        <p class="lh13 m0  bowName" style="font-size: 15px !important;">{{liveScoreData.bowler_name}}</p>
+        <p class="lh13 m0  bowdet" style="font-size: 15px !important;"> ({{liveScoreData.bowler_ball}} - {{liveScoreData.maiden_over}} - {{liveScoreData.bowler_run}} - {{liveScoreData.bowler_wicket}})</p>
+        <mat-icon class='batsmanChangeBtn cc'  (click)='openSelectPlayerDialog("bowler")' >settings</mat-icon>
+
+      </div>
+    </div>
+  </div>
+  <div class="w100 fl runByBall oAuto h49">
+    <div class="subRunBy">
+      <p *ngFor='let item of liveScoreData.overball' (click)='editScore(item.score_id)'>
+        <span class="wicket" *ngIf="item.key=='w'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="noball" *ngIf="item.key=='nb'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="wide" *ngIf="item.key=='wd'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="wide" *ngIf="item.key=='lb'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="wide" *ngIf="item.key=='by'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="zero" *ngIf="item.key=='0'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="zero" *ngIf="item.key=='1'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="zero" *ngIf="item.key=='2'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="zero" *ngIf="item.key=='3'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="four" *ngIf="item.key=='4'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="four" *ngIf="item.key=='5'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+        <span class="six" *ngIf="item.key=='6'">{{item.val}}<p class="ballover">{{item.over}}</p></span>
+      </p>
+    </div>
+  
+  </div>
+</div>
+<div class="scoreButtonsDiv w100 fl">
+  <div class="w100 fl">
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight}" class="bbAAA brAAA w100 bRad0 posRel">
+        <span class='lbls'>Ov</span>
+        <input type="text" [value]="nextBall"   class="wids inputNB fl">
+      </button>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrsefrun}" [matMenuTriggerFor]="singleMenu" style="font-size: 25px !important;"
+        class=" fs brAAA bbAAA w100 bRad0 posRel focuarun">Run = {{singleText}}</button>
+      <mat-menu #singleMenu="matMenu" style="line-height: 3;">
+        <button class="boxhw" (click)='singleChange(0)'>0</button>
+        <button class="boxhw" (click)='singleChange(1)'>1</button>
+        <button class="boxhw" (click)='singleChange(2)'>2</button>
+        <button class="boxhw" (click)='singleChange(3)'>3</button>
+        <button class="boxhw" (click)='singleChange("4")'>4</button>
+        <button class="boxhw" (click)='singleChange(5)'>5</button>
+        <button class="boxhw" (click)='singleChange("6")'>6</button>
+        <button class="boxhw" (click)='singleChange(7)'>7</button>
+        <button class="boxhw" (click)='singleChange(8)'>8</button>
+      </mat-menu>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}" *ngFor='let item of last' >
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : undoball}" style="font-size: 25px !important;color: red!important;" class="fs bbAAA brAAA w100 bRad0 posRel"
+      (click)='deleteBowls(item?.score_id)'  >UNDO</button>
+    </div>
+    <!-- four btn -->
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+        <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrsefffour}"  (click)='fourchange(4)' style="font-size: 23px !important;" class="fs bbAAA w100 bRad0 posRel">Four = {{fourText}}</button>
+        
+    </div>
+    <!-- six btn -->
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrseffsix}" (click)='sixChange(6)' style="font-size: 23px !important;" class="fs bbAAA w100 bRad0 posRel">Six = {{sixText}}</button>
+  </div>
+   
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrseff}" style="font-size: 25px !important;" class="fs bbAAA brAAA colorRed w100 bRad0 posRel focusout"
+        (click)='openWicketDialog()'>OUT</button>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrsefwd}" 
+        [matMenuTriggerFor]="wideMenu" style="font-size: 25px !important;" class=" fs brAAA bbAAA w100 bRad0 posRel">{{wideText}}</button>
+      <mat-menu #wideMenu="matMenu" style="line-height: 3;">
+        <button class="boxhw" (click)='wideChange(0)'>0</button>
+        <button class="boxhw" (click)='wideChange(1)'>1</button>
+        <button class="boxhw" (click)='wideChange(2)'>2</button>
+        <button class="boxhw" (click)='wideChange(3)'>3</button>
+        <button class="boxhw" (click)='wideChange(4)'>4</button>
+        <button class="boxhw" (click)='wideChange(5)'>5</button>
+        <button class="boxhw" (click)='wideChange(6)'>6</button>
+        <button class="boxhw" (click)='wideChange(7)'>7</button>
+        <button class="boxhw" (click)='wideChange(8)'>8</button>
+        
+      </mat-menu>
+    </div>
+   
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrseflb}" [matMenuTriggerFor]="lbMenu" style="font-size: 25px !important;"
+        class="fs brAAA bbAAA w100 bRad0 posRel">{{lbText}}</button>
+      <mat-menu style="text-align: center; line-height: 3 !important;" #lbMenu="matMenu" >
+        <button class="boxhw" (click)='lbChange(0)'>0</button>
+        <button class="boxhw" (click)='lbChange(1)'>1</button>
+        <button class="boxhw" (click)='lbChange(2)'>2</button>
+        <button class="boxhw" (click)='lbChange(3)'>3</button>
+        <button class="boxhw" (click)='lbChange(4)'>4</button>
+        <button class="boxhw" (click)='lbChange(5)'>5</button>
+        <button class="boxhw" (click)='lbChange(6)'>6</button>
+        <button class="boxhw" (click)='lbChange(7)'>7</button>
+        <button class="boxhw" (click)='lbChange(8)'>8</button>
+      </mat-menu>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color' : bgcolrsefnb}" style="font-size: 25px !important;" class="fs bbAAA brAAA w100 bRad0 posRel"
+        (click)='openNoBallDialog()'>{{noBallText}}</button>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight,'background-color':bgcolrsefbye}" style="font-size: 25px !important;" [matMenuTriggerFor]="byeMenu"
+        class="fs bbAAA w100 bRad0 posRel">{{byeText}}</button>
+      <mat-menu #byeMenu="matMenu" style="line-height: 3;">
+        <button class="boxhw" (click)='byeChange(0)'>0</button>
+        <button class="boxhw" (click)='byeChange(1)'>1</button>
+        <button class="boxhw" (click)='byeChange(2)'>2</button>
+        <button class="boxhw" (click)='byeChange(3)'>3</button>
+        <button class="boxhw" (click)='byeChange(4)'>4</button>
+        <button class="boxhw" (click)='byeChange(5)'>5</button>
+        <button class="boxhw" (click)='byeChange(6)'>6</button>
+        <button class="boxhw" (click)='byeChange(7)'>7</button>
+        <button class="boxhw" (click)='byeChange(8)'>8</button>
+      </mat-menu>
+    </div>
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight}" class="bbAAA w100 bRad0 posRel">
+        <span class='lbld2'>Ex</span>
+        <input type="number" (mouseup)="$any($event.target).select()" (input)='extraPlus($event)' class=" wids inputNB fl"
+          [(ngModel)]='extra'>
+      </button>
+    </div>
+    
+    <div class="w33 fl" [ngStyle]="{'height': scoreBtnHeight}">
+      <button mat-button [ngStyle]="{'height': scoreBtnHeight}" class="bbAAA w100 bRad0 posRel">
+        <span class='lbld2'>T.Run</span>
+        <input type="number" disabled (mouseup)="$any($event.target).select()" style="font-size:25px; " class="wids inputNB fl" [(ngModel)]='totalRun'>
+      </button>
+    </div>
+    <div class="w100 fl" [ngStyle]="{'height': scoreBtnHeight2}">
+      <button  *ngIf='!bowlEdited'  [ngStyle]="{'height': scoreBtnHeight2}"
+        class='bbAAA w100 bRad0 bgGreen colFFF posRel f20 button-77' (click)='addScore("save")'>Save</button>
+        <button mat-button *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute; right:0px;white-space: break-spaces; line-height: 1; font-size: 17px; " [ngStyle]="{'height': scoreBtnHeight}"
+        class='bbAAA w50 bRad0 bgGreen colFFF posRel f20' (click)='addScore("update")'>Update Bowl
+        {{nextBall}}</button>
+      <button mat-button *ngIf='bowlEdited' style="height: 61.4px !important; position: absolute;  white-space: break-spaces; line-height: 1;font-size: 17px; "[ngStyle]="{'height': scoreBtnHeight}"
+        class='bbAAA w50 bRad0 bgRed colFFF posRel f20' (click)='deleteBowl(editedScoreId)'>Delete Bowl
+        {{nextBall}}</button>
+    </div>
+  </div>
+  <div class="loader-div" *ngIf='isLoaderShow'>
+    <mat-progress-spinner mode='indeterminate' diameter='50'>
+    </mat-progress-spinner>
+  </div>
+</div>

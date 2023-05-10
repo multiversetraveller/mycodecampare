@@ -1,0 +1,13 @@
+<div class="w100 fl p15">
+    <button mat-button class="btn mb20" (click)='addGallery()'>Add Gallery</button>
+    <div class="form-div">
+      <div class='image' *ngFor='let item of gallery'>
+        <img [src]="item.framename"  />
+        <i class="material-icons delIcon" (click)='delete(item.framename)'>delete</i>
+      </div>
+    </div>
+  </div>
+  <div class="loader-div" *ngIf='isLoaderShow'>
+    <mat-progress-spinner mode='indeterminate' diameter='50'>
+    </mat-progress-spinner>
+  </div>

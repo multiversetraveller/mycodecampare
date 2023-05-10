@@ -1,0 +1,78 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20' *ngIf='!isCropper'>
+      <div class="label-form">
+        <label>Committee Member Detail</label>
+      </div>
+      <div class="example-form">
+        <div class="example-full-width" cellspacing="0">
+          <mat-form-field class="example-full-width">
+            <mat-label>Select Player (optional)</mat-label>
+            <input matInput [(ngModel)]='txtSelectPlayer'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Type</mat-label>
+            <input matInput [(ngModel)]='txtType'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Member Name</mat-label>
+            <input matInput [(ngModel)]='txtMemberName' required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Father Name</mat-label>
+            <input matInput [(ngModel)]='txtFatherName'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Surname</mat-label>
+            <input matInput [(ngModel)]='txtSurname'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Date OF Birth</mat-label>
+            <input matInput [matDatepicker]="picker" (dateChange)="calculateAge($event)" [(ngModel)]='txtBirthDate'>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="Age" [value]='txtAge' disabled>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile</mat-label>
+            <input matInput [(ngModel)]='txtMobile'>
+          </mat-form-field>
+          <div class="example-full-width mb20">
+            <mat-label>Member Image</mat-label>
+            <input type="file" (change)="fileChangeEvent($event)" class='w100'>
+            <img *ngIf='memberImage' [src]="memberImage" class="image-after-crop" />
+          </div>
+        </div>
+      </div>
+      <div class='btn-div'>
+        <button mat-raised-button color="primary" class="btn-back" (click)="back()">
+          BACK
+        </button>
+        <button mat-raised-button color="primary" class="btn-save fr" (click)="save()">
+          SAVE
+        </button>
+      </div>
+    </div>
+    <div *ngIf='isCropper' class="cropper-div" [ngStyle]="{'height': popupHeight}">
+      <div class="cropper-sub-div">
+        <button mat-button (click)='scalePlus()' class="scale-button plus-btn">
+          <i class="material-icons">zoom_in</i>
+        </button>
+        <button mat-button (click)='scaleDown()' class="scale-button minus-btn">
+          <i class="material-icons">zoom_out</i>
+        </button>
+        <button mat-button class="confirm-button" (click)='cropConfirm()'>Confirm</button>
+        <img [src]="croppedImage" class='cropped-image' />
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" format="jpeg"
+          [cropper]="cropper" [imageQuality]="imageQuality" [resizeToWidth]="resizeToWidth" [resizeToHeight]="resizeToHeight" [transform]="transform"
+          (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()">
+        </image-cropper>
+      </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div>

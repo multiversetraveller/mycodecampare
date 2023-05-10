@@ -1,0 +1,26 @@
+<div class="w100 fl p15">
+    <form role="form" #myForm="ngForm" accept-charset="UTF-8" novalidate>
+      <div class="form-group has-feedback" 
+            [ngClass]="{'has-error': Editor.invalid && Editor.touched}">
+        <ckeditor [(ngModel)]="mycontent" 
+                  #myckeditor="ngModel"
+                  name="myckeditor"
+                  required
+                  [config]="ckeConfig" 
+                  debounce="500" 
+                  (paste)="onPaste($event)"
+                  (change)="onChange($event)">
+        </ckeditor>
+        <ckeditor [editor]="Editor"   data="<p>write here ..!</p>" [(ngModel)]="Editor">
+        </ckeditor>
+        <div *ngIf="Editor.invalid && Editor.touched" class="help-block">Required field.</div>
+      </div>
+      </form>
+    </div>
+    <div class="w100 fl p15">
+      <button [disabled]="myForm.invalid" class="btn btn-primary" (click)='save()'>Save</button>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>

@@ -1,0 +1,48 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20'>
+      <div class="example-form">
+        <div class="example-full-width" cellspacing="0">
+          <mat-form-field class="example-full-width">
+            <mat-label>Group Name</mat-label>
+            <input matInput [(ngModel)]='txtGroupName'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Team Name</mat-label>
+            <input matInput [(ngModel)]='txtTeamName'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Total Matches</mat-label>
+            <input matInput type='number' [(ngModel)]='txtTotalMatches'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Win</mat-label>
+            <input matInput type='number' [(ngModel)]='txtWin'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Loss</mat-label>
+            <input matInput type='number' [(ngModel)]='txtLoss'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Points</mat-label>
+            <input matInput type='number' [(ngModel)]='txtPoints'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Average</mat-label>
+            <input matInput type='number' [(ngModel)]='txtAverage'>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class='btn-div'>
+        <button mat-raised-button color="primary" class="btn-back" (click)="back()">
+          BACK
+        </button>
+        <button mat-raised-button color="primary" class="btn-save fr" (click)="save($event)">
+          SAVE
+        </button>
+      </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div>

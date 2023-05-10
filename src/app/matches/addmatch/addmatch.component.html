@@ -1,0 +1,302 @@
+<div class="w100 p15 fl">
+    <div class="w50 fl">
+      <button mat-button class="btn" (click)='livescoreedit()'>Live Edit</button>
+    </div>
+    <div class="w50 fl">
+      <button mat-button class="btn fr" (click)='playerscoreedit()'>Player Score Edit</button>
+    </div>
+  </div>
+  <div class='w100 p15 fl h100'>
+    <div class="label-form">
+      <label>Match Detail</label>
+    </div>
+    <div class="example-form">
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width">
+          <mat-label>First Team</mat-label>
+          <mat-select [(value)]="firstTeam" [(ngModel)]='firstTeam'>
+            <mat-option>Select Team </mat-option>
+            <mat-option *ngFor='let item of team' [value]="item.team_id">{{item.team_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Second Team</mat-label>
+          <mat-select [(value)]="secondTeam" [(ngModel)]='secondTeam'>
+            <mat-option>Select Team </mat-option>
+            <mat-option *ngFor='let item of team' [value]="item.team_id">{{item.team_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Match Over</mat-label>
+          <input matInput [(ngModel)]='txtOver'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Match Type</mat-label>
+          <mat-select [(ngModel)]="txtMatchType">
+            <mat-option>select Type</mat-option>
+            <mat-option value="Final">Final</mat-option>
+            <mat-option value="Quater">Quater</mat-option>
+            <mat-option value="Semi Final">Semi Final</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+       <div class="matsets">
+        <div style="width: 100%;">
+        <label style="padding-left: 15px;font-weight: bold;">Start Time</label><br>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+          <mat-label>HH</mat-label>
+          <mat-select [(ngModel)]="txth">
+            <mat-option>select Type</mat-option>
+            <mat-option value="00">00</mat-option>
+            <mat-option value="01">01</mat-option>
+            <mat-option value="02">02</mat-option>
+            <mat-option value="03">03</mat-option>
+            <mat-option value="04">04</mat-option>
+            <mat-option value="05">05</mat-option>
+            <mat-option value="06">06</mat-option>
+            <mat-option value="07">07</mat-option>
+            <mat-option value="08">08</mat-option>
+            <mat-option value="09">09</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="11">11</mat-option>
+            <mat-option value="12">12</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+          <mat-label>MM</mat-label>
+          <mat-select [(ngModel)]="txtm">
+            <mat-option>select Type</mat-option>
+            <mat-option value="00">00</mat-option>
+            <mat-option value="01">01</mat-option>
+            <mat-option value="02">02</mat-option>
+            <mat-option value="03">03</mat-option>
+            <mat-option value="04">04</mat-option>
+            <mat-option value="05">05</mat-option>
+            <mat-option value="06">06</mat-option>
+            <mat-option value="07">07</mat-option>
+            <mat-option value="08">08</mat-option>
+            <mat-option value="09">09</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="11">11</mat-option>
+            <mat-option value="12">12</mat-option>
+            <mat-option value="13">13</mat-option>
+            <mat-option value="14">14</mat-option>
+            <mat-option value="15">15</mat-option>
+            <mat-option value="16">16</mat-option>
+            <mat-option value="17">17</mat-option>
+            <mat-option value="18">18</mat-option>
+            <mat-option value="19">19</mat-option>
+            <mat-option value="20">20</mat-option>
+            <mat-option value="21">21</mat-option>
+            <mat-option value="22">22</mat-option>
+            <mat-option value="23">23</mat-option>
+            <mat-option value="24">24</mat-option>
+            <mat-option value="25">25</mat-option>
+            <mat-option value="26">26</mat-option>
+            <mat-option value="27">27</mat-option>
+            <mat-option value="28">28</mat-option>
+            <mat-option value="29">29</mat-option>
+            <mat-option value="30">30</mat-option>
+            <mat-option value="31">31</mat-option>
+            <mat-option value="32">32</mat-option>
+            <mat-option value="33">33</mat-option>
+            <mat-option value="34">34</mat-option>
+            <mat-option value="35">35</mat-option>
+            <mat-option value="36">36</mat-option>
+            <mat-option value="37">37</mat-option>
+            <mat-option value="38">38</mat-option>
+            <mat-option value="39">39</mat-option>
+            <mat-option value="40">40</mat-option>
+            <mat-option value="41">41</mat-option>
+            <mat-option value="42">42</mat-option>
+            <mat-option value="43">43</mat-option>
+            <mat-option value="44">44</mat-option>
+            <mat-option value="45">45</mat-option>
+            <mat-option value="46">46</mat-option>
+            <mat-option value="47">47</mat-option>
+            <mat-option value="48">48</mat-option>
+            <mat-option value="49">49</mat-option>
+            <mat-option value="50">50</mat-option>
+            <mat-option value="51">51</mat-option>
+            <mat-option value="52">52</mat-option>
+            <mat-option value="53">53</mat-option>
+            <mat-option value="54">54</mat-option>
+            <mat-option value="55">55</mat-option>
+            <mat-option value="56">56</mat-option>
+            <mat-option value="57">57</mat-option>
+            <mat-option value="58">58</mat-option>
+            <mat-option value="59">59</mat-option>
+            <mat-option value="60">60</mat-option>          
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+          <mat-label>AM/PM</mat-label>
+          <mat-select [(ngModel)]="txtampm">
+            <mat-option value="AM">AM</mat-option>
+            <mat-option value="PM">PM</mat-option>        
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div style="width: 100%;">
+        <mat-label style="padding-left: 15px;font-weight: bold;">End Time</mat-label><br>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+          <mat-label>HH</mat-label>
+          <mat-select [(ngModel)]="txteh">
+            <mat-option>select Type</mat-option>
+            <mat-option value="00">00</mat-option>
+            <mat-option value="01">01</mat-option>
+            <mat-option value="02">02</mat-option>
+            <mat-option value="03">03</mat-option>
+            <mat-option value="04">04</mat-option>
+            <mat-option value="05">05</mat-option>
+            <mat-option value="06">06</mat-option>
+            <mat-option value="07">07</mat-option>
+            <mat-option value="08">08</mat-option>
+            <mat-option value="09">09</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="11">11</mat-option>
+            <mat-option value="12">12</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+          <mat-label>MM</mat-label>
+          <mat-select [(ngModel)]="txtem">
+            <mat-option>select Type</mat-option>
+            <mat-option value="00">00</mat-option>
+            <mat-option value="01">01</mat-option>
+            <mat-option value="02">02</mat-option>
+            <mat-option value="03">03</mat-option>
+            <mat-option value="04">04</mat-option>
+            <mat-option value="05">05</mat-option>
+            <mat-option value="06">06</mat-option>
+            <mat-option value="07">07</mat-option>
+            <mat-option value="08">08</mat-option>
+            <mat-option value="09">09</mat-option>
+            <mat-option value="10">10</mat-option>
+            <mat-option value="11">11</mat-option>
+            <mat-option value="12">12</mat-option>
+            <mat-option value="13">13</mat-option>
+            <mat-option value="14">14</mat-option>
+            <mat-option value="15">15</mat-option>
+            <mat-option value="16">16</mat-option>
+            <mat-option value="17">17</mat-option>
+            <mat-option value="18">18</mat-option>
+            <mat-option value="19">19</mat-option>
+            <mat-option value="20">20</mat-option>
+            <mat-option value="21">21</mat-option>
+            <mat-option value="22">22</mat-option>
+            <mat-option value="23">23</mat-option>
+            <mat-option value="24">24</mat-option>
+            <mat-option value="25">25</mat-option>
+            <mat-option value="26">26</mat-option>
+            <mat-option value="27">27</mat-option>
+            <mat-option value="28">28</mat-option>
+            <mat-option value="29">29</mat-option>
+            <mat-option value="30">30</mat-option>
+            <mat-option value="31">31</mat-option>
+            <mat-option value="32">32</mat-option>
+            <mat-option value="33">33</mat-option>
+            <mat-option value="34">34</mat-option>
+            <mat-option value="35">35</mat-option>
+            <mat-option value="36">36</mat-option>
+            <mat-option value="37">37</mat-option>
+            <mat-option value="38">38</mat-option>
+            <mat-option value="39">39</mat-option>
+            <mat-option value="40">40</mat-option>
+            <mat-option value="41">41</mat-option>
+            <mat-option value="42">42</mat-option>
+            <mat-option value="43">43</mat-option>
+            <mat-option value="44">44</mat-option>
+            <mat-option value="45">45</mat-option>
+            <mat-option value="46">46</mat-option>
+            <mat-option value="47">47</mat-option>
+            <mat-option value="48">48</mat-option>
+            <mat-option value="49">49</mat-option>
+            <mat-option value="50">50</mat-option>
+            <mat-option value="51">51</mat-option>
+            <mat-option value="52">52</mat-option>
+            <mat-option value="53">53</mat-option>
+            <mat-option value="54">54</mat-option>
+            <mat-option value="55">55</mat-option>
+            <mat-option value="56">56</mat-option>
+            <mat-option value="57">57</mat-option>
+            <mat-option value="58">58</mat-option>
+            <mat-option value="59">59</mat-option>
+            <mat-option value="60">60</mat-option>          
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="width: 125px !important;">
+            <mat-label>AM/PM</mat-label>
+            <mat-select [(ngModel)]="txteampm">
+            <mat-option value="AM">AM</mat-option>
+            <mat-option value="PM">PM</mat-option>        
+          </mat-select>
+        </mat-form-field>
+    </div>
+       </div>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>Match Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]='txtMatchdate'>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Match Status</mat-label>
+          <mat-select [(ngModel)]="txtMatchstatus">
+            <mat-option>Select status</mat-option>
+            <mat-option value="upcoming">Upcoming</mat-option>
+            <mat-option value="progress">Progress</mat-option>
+            <mat-option value="complete">Complete</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 1 score</mat-label>
+          <input matInput [(ngModel)]='txtTeam1score'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 2 score</mat-label>
+          <input matInput [(ngModel)]='txtTeam2score'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 1 over</mat-label>
+          <input matInput [(ngModel)]='txtTeam1over'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 2 over</mat-label>
+          <input matInput [(ngModel)]='txtTeam2over'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 1 wicket</mat-label>
+          <input matInput [(ngModel)]='txtTeam1wicket'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Team 2 wicket</mat-label>
+          <input matInput [(ngModel)]='txtTeam2wicket'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Match Freeze</mat-label>
+          <mat-select [(ngModel)]="txtfreeze">
+            <mat-option>Select Freeze</mat-option>
+            <mat-option value="off">OFF</mat-option>
+            <mat-option value="on">ON</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div> 
+    <div class='btn-div'>
+      <button mat-button class="btn-back" (click)="back()">
+        BACK
+      </button>
+      <button mat-button class="btn-save fr" (click)="save()">
+        SAVE
+      </button>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'  style="position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);">
+      </mat-progress-spinner>
+    </div>
+  </div> 

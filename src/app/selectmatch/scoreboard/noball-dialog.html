@@ -1,0 +1,27 @@
+<h1 mat-dialog-title style="font-size: 27px;">NO BALL = {{nbruns}} +</h1>
+<div mat-dialog-content style="line-height: 3;">
+    <button class="boxhws"  (click)='countNbScore(0)'>0</button>
+    <button class="boxhws"  (click)='countNbScore(1)'>1</button>
+    <button class="boxhws"  (click)='countNbScore(2)'>2</button>
+    <button class="boxhws"  (click)='countNbScore(3)'>3</button>
+    <button class="boxhws"  (click)='countNbScore(4)'>4</button>
+    <button class="boxhws"  (click)='countNbScore(5)'>5</button>
+    <button class="boxhws"  (click)='countNbScore(6)'>6</button>
+    <button class="boxhws"  (click)='countNbScore(7)'>7</button>
+    <button class="boxhws"  (click)='countNbScore(8)'>8</button>
+    <button class="boxhws"  (click)='countNbScore(9)'>9</button>
+  <div class="w100 fl totNbRuns">
+  <h1 style="font-size: 27px; padding: 13px 0px;" mat-dialog-title>Total = {{ nbruns + nbRun}} Runs</h1>
+  </div>
+  <div class="w100 fl">
+  <mat-radio-group aria-label="Select an option" [(ngModel)]='nbRadio'>
+    <mat-radio-button value="bat" class="mr10 mb10 f14">From Bat</mat-radio-button>
+    <mat-radio-button value="bye" class="mr10 mb10 f14">Bye</mat-radio-button>
+    <mat-radio-button value="lb" class="mb10 f14">Leg Bye</mat-radio-button>
+  </mat-radio-group> 
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="dialogOkBtn" (click)="onOkClick()">OK</button>
+  <button mat-button class="dialogCancelBtn" (click)="onCancelClick()">Cancel</button>
+</div>

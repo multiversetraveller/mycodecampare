@@ -1,0 +1,154 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20' *ngIf='!isCropper'>
+      <div class="label-form">
+        <label>Add Setting</label>
+      </div>
+  
+      <div class="mat-form-field mb20">
+        
+        <mat-grid-list cols="2" rowHeight="6:2">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file" (change)="fileChangeEvent($event, 'headerimg')" id="file-upload" >
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Header Left</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile >
+                <img *ngIf='headerleft' [src]="headerleft" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+      <div class="mat-form-field mb20">
+        <mat-grid-list cols="2" rowHeight="6:2">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file" (change)="fileChangeEvent($event, 'righthedimg')" id="file-upload">
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Header Right</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile >       
+                 <img *ngIf='rightheader' [src]="rightheader" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+       
+
+
+      </div>
+  
+      <mat-form-field>
+        <input matInput placeholder="Title 1"  [(ngModel)]= 'titleone'>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Title 2"  [(ngModel)]= 'titletwo'>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Title 3"  [(ngModel)]= 'titlethree'>
+      </mat-form-field>
+  
+      <div class="mat-form-field mb20">
+        <mat-grid-list cols="2" rowHeight="6:2">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file" (change)="fileChangeEvent($event, 'marqimg')" id="file-upload">
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Marquee 1st</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile >       
+                <img *ngIf='marquee1' [src]="marquee1" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+  
+      <div class="mat-form-field mb20">
+        <mat-grid-list cols="2" rowHeight="6:2">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file"  (change)="fileChangeEvent($event, 'imgmrq')" id="file-upload">
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Marquee 2nd</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile >       
+                <img *ngIf='marquee2' [src]="marquee2" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+  
+      <div class="mat-form-field mb20">
+        <mat-grid-list cols="2" rowHeight="6:2">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file"  (change)="fileChangeEvent($event, 'logo')" id="file-upload">
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i> PDF Header Logo</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile >       
+                <img *ngIf='headerlogo' [src]="headerlogo" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      
+      <mat-form-field>
+        <mat-label>Registration</mat-label>
+        <mat-select  [(ngModel)]= 'txtreg' >
+          <mat-option value="on">ON</mat-option>
+          <mat-option value="off">OFF</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput  placeholder="Notification Key" [(ngModel)]= 'notification' >
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput  placeholder="App id" [(ngModel)]= 'appid' >
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput  placeholder="App url" [(ngModel)]= 'appurl' >
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput  placeholder="Minimum Bid" [(ngModel)]= 'minimumbid' >
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput  placeholder="Total Player" [(ngModel)]= 'totalplayer' >
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput  placeholder="Ticker" [(ngModel)]= 'ticker' >
+      </mat-form-field>
+  
+      <div class='btn-div' style="position: absolute;
+      right: 0px;
+      padding: 15px;">
+        <button mat-raised-button color="primary" class="btn-back" (click)="Updatesetting()">
+          Update Setting
+        </button>
+          </div>
+    </div>
+  
+    <div *ngIf='isCropper' class="cropper-div" [ngStyle]="{'height': popupHeight}">
+      <div class="cropper-sub-div">
+        <button mat-button (click)='scalePlus()' class="scale-button plus-btn">
+          <i class="material-icons">zoom_in</i>
+        </button>
+        <button mat-button (click)='scaleDown()' class="scale-button minus-btn">
+          <i class="material-icons">zoom_out</i>
+        </button>
+        <button mat-button class="confirm-button" (click)='cropConfirm()'>Confirm</button>
+        <img [src]="croppedImage" class='cropped-image' />
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" format="jpeg"
+          [cropper]="cropper" [imageQuality]="70" [resizeToWidth]="256" [resizeToHeight]="256" [transform]="transform" (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()">
+        </image-cropper>
+      </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50' style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
+      </mat-progress-spinner>
+    </div>
+  </div>
+  

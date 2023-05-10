@@ -1,0 +1,42 @@
+<div class='p15 w100 fl'>
+    <div class="w100 fl ">
+      <p class="tt">Won Toss : </p>
+    </div>
+    <div class='w100 fl mb15'>
+      <div class='plr5 fl w50 mb10'>
+        <div class='team_div'>
+          <mat-radio-button [value]='team1Name' [checked]='team1Checked' color="primary" name='1' class='fr' (change)='wonTossByTeam1($event)'></mat-radio-button>
+          <img [src]='team1Image' onerror="src='assets/image/teamimage.png'"/>
+          <p class="mb20">{{team1Name}}</p>
+        </div>
+      </div>
+      <div class='plr5 fl w50 mb10'>
+        <div class='team_div'>
+          <mat-radio-button [value]='team2Name' [checked]='team2Checked' color="primary" name='1' class='fr' (change)='wonTossByTeam1($event)'></mat-radio-button>
+          <img [src]='team2Image' onerror="src='assets/image/teamimage.png'"/>
+          <p class="mb20">{{team2Name}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="w100 fl">
+      <p class="tt">Elected to : </p>
+    </div>
+    <div class='w100 fl mb15'>
+      <div class='plr5 fl w50 mb10'>
+        <div class='team_div'>
+          <mat-radio-button value='bat' [checked]='batChecked' color="primary" name='2' class='fr' (change)='electedTo($event)'></mat-radio-button>
+          <img src='assets/image/bat.jpg' />
+          <p class="mb20">BAT</p>
+        </div>
+      </div>
+      <div class='plr5 fl w50 mb10'>
+        <div class='team_div'>
+          <mat-radio-button value='field' [checked]='bowlChecked' color="primary" name='2' class='fr' (change)='electedTo($event)'></mat-radio-button>
+          <img src='assets/image/ball.jpg' />
+          <p class="mb20">BOWL</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-button *ngIf='matchStat == "continue"' class='btnGoScoreboard' (click)='goScoreboard()'>Go Scoreboard</button>
+  <button mat-button class='btnNext' (click)='goSelectStrikers()'>Next</button>

@@ -1,0 +1,115 @@
+<div class=" w100 p15 fl">
+    <div class=" w100  fl tableDiv ">
+      
+
+      <mat-form-field class="example-form-field searchmat"  >
+        <mat-label>Search</mat-label>
+        <mat-icon matSuffix style="float: left;">search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" [(ngModel)]="value" placeholder="">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  
+    <div class="mat-elevation-z8 oAuto tableDiv w100 ">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="teamname" sticky>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.teamname}} </td>
+        </ng-container>
+  
+        <!-- teamwin Column -->
+        <ng-container matColumnDef="teamwin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Win </th>
+          <td mat-cell *matCellDef="let row"> {{row.teamwin}} </td>
+        </ng-container>
+  
+        <!-- teamloss Column -->
+        <ng-container matColumnDef="teamloss">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Loss </th>
+          <td mat-cell *matCellDef="let row" > {{row.teamloss}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="totalpoint">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Point </th>
+          <td mat-cell *matCellDef="let row" > {{row.totalpoint}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="teamfirst">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 1 </th>
+          <td mat-cell *matCellDef="let row" > {{row.teamfirst}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team1run">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 1 Run </th>
+          <td mat-cell *matCellDef="let row" > {{row.team1run}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team1ball">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 1 Ball </th>
+          <td mat-cell *matCellDef="let row" > {{row.team1ball}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team1wicket">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 1 Wicket </th>
+          <td mat-cell *matCellDef="let row" > {{row.team1wicket}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="teamsecond">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 2 </th>
+          <td mat-cell *matCellDef="let row" > {{row.teamsecond}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team2ball">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 2 Ball </th>
+          <td mat-cell *matCellDef="let row" > {{row.team2ball}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team2wicket">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 2 Wicket </th>
+          <td mat-cell *matCellDef="let row" > {{row.team2wicket}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team1avg">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 1 avg. </th>
+          <td mat-cell *matCellDef="let row" > {{row.team1avg}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="team2avg">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team 2 avg. </th>
+          <td mat-cell *matCellDef="let row" > {{row.team2avg}} </td>
+        </ng-container>
+  
+        <!-- totalpoint Column -->
+        <ng-container matColumnDef="teamavg">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Team avg. </th>
+          <td mat-cell *matCellDef="let row" > {{row.teamavg}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+    <div class=" tableDiv ">
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50' style="position: absolute;left: 50%;top: 50%; transform: translate(-50%, -50%);">
+      </mat-progress-spinner>
+    </div>
+    </div>
+  </div>

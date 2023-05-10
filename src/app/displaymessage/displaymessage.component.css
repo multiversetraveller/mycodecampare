@@ -1,0 +1,11 @@
+.form-div{    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 90%;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.sendBtn{  font-size: 16px; margin: 10px;
+    float: right;}

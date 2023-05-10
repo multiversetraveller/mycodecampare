@@ -1,0 +1,44 @@
+<div class='p15 w100 fl'>
+    <div class="alert " *ngIf="showalert == true">
+      <div style="width: 100%;height: 8px;">
+        <h2 style="    font-size: medium;text-align: center;width: 14%;float: right;padding: 0px;background: #fd0000;" >close</h2>
+      </div>
+      <h4 style="color: #fd0000;">Match in progress!</h4>
+      <p> A match is already Running ,Close it first.</p>
+    </div>
+    <div class="w100 fl matchDiv posRel" *ngFor='let item of matchesList'>
+      <div class="w100 fl pt5 mb5">
+        <div class="w50p fl">
+          <img [src]="item.img1" onerror="src='assets/image/teamimage.png'">
+        </div>
+        <div class="w60 fl">
+          <p class="m0 lh30 f14 dot-css">{{item.team_1}}</p>
+        </div>
+      </div>
+      <div class="w100 fl pb5">
+        <div class="w50p fl">
+          <img [src]="item.img2" onerror="src='assets/image/teamimage.png'">
+        </div>
+        <div class="w60 fl">
+          <p class="m0 lh30 f14 dot-css">{{item.team_2}}</p>
+        </div>
+      </div>
+      <div class="w100 fl btCCC">
+        <p class="m0 lh30 f14 pl15">{{item.match_date}} {{item.timeslot}}</p>
+      </div>
+      <div class='date-div'>
+        <p [class.active]='item.page == "score/inning1.php"'>{{getDate(item.match_date)}}</p>
+        <p [class.active]='item.page == "score/inning1.php"'>{{getMonth(item.match_date)}}</p>
+      </div>
+      
+      <button mat-raised-button class='btnStart' *ngIf='item.status !== "progress"'
+        (click)='matchSelects(item.match_id, item.team1_12, item.team2_12, item.team_1, item.team_2, item.img1, item.img2, "new")'>Start</button>
+      <button mat-raised-button class='btnStart activeBtn' *ngIf='item.status == "progress"'
+        (click)='matchSelect(item.match_id, item.team1_12, item.team2_12, item.team_1, item.team_2, item.img1, item.img2, "continue")'>Continue</button>
+    </div>
+  </div>
+  <mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50' style="position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);">
+  </mat-progress-spinner>

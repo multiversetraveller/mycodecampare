@@ -1,0 +1,259 @@
+<div class='w100 p15 fl h100'>
+  <div class='full-form mb20'>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          Bidding
+        </ng-template>
+
+        <mat-form-field>
+          <mat-label>PLAYER TYPE</mat-label>
+          <mat-select [(value)]="selectedplayer" [(ngModel)]="selectedp">
+            <mat-option value="All">All</mat-option>
+            <mat-option value="Junior">Junior</mat-option>
+            <mat-option value="Regular">Regular</mat-option>
+            <mat-option value="Senior">Senior</mat-option>
+            <mat-option value="Women">Women</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="seconddd">
+          <mat-label>BIDDING</mat-label>
+          <mat-select [(value)]="bidonoff" [(ngModel)]="selectbidding">
+            <mat-option value="ON">ON</mat-option>
+            <mat-option value="OFF">OFF</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="thirddd">
+          <mat-label>REG.NO.</mat-label>
+          <input matInput type="number" [(ngModel)]="registeno" placeholder="">
+          <button *ngIf="registeno" matSuffix mat-icon-button aria-label="Clear" (click)="searchimg()">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-mini-fab class="center">
+            <mat-icon class="refreshcolor" (click)='refresh()'>refresh</mat-icon>
+          </button>
+        </mat-form-field>
+
+
+
+
+        <mat-form-field class="container">
+
+          <mat-label>POINT</mat-label>
+          <mat-icon class="minusicon" (click)='minuspointsocket()'>indeterminate_check_box</mat-icon>
+
+          <input matInput type="number" class="poiwith" [(ngModel)]='enterbidinng'>
+          <mat-icon class="plusicon" (click)='addpointsocket()'>add_box</mat-icon>
+          <mat-icon class="pointcolor" (click)='directpoint()'>arrow_right_alt</mat-icon>
+        </mat-form-field>
+
+
+        <mat-form-field class="wpoint">
+          <mat-label>Round</mat-label>
+          <input matInput type="text" [(ngModel)]='roundtext'>
+        </mat-form-field>
+
+        <mat-form-field class="firstdd example-full-width">
+          <mat-label>SELECT TEAM</mat-label>
+          <mat-select (selectionChange)="addmaxbid($event)" [(value)]="selectedTeam" [(ngModel)]="t1">
+            <mat-option>Select Team </mat-option>
+            <mat-option class="fontsize" class="panel-custom-width" *ngFor='let item of playerteam'
+              [value]="item.team_id">{{item.team_name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-mini-fab
+          style="margin: 10px; background-color: rgb(195, 195, 195) !important; color: green !important;">
+          <mat-icon (click)='clear()'>clear_all</mat-icon>
+        </button>
+
+        <div class="pointshow">
+          <label *ngIf='isbidShow' id="maxminpointsid">Max :{{point}}/{{maxpoint}}</label>
+        </div>
+
+        <ng-container>
+          <div class='btn-ddiv m18'>
+            <button mat-raised-button color="primary" class="btn-back" (click)='savebidding()'
+              [disabled]="soldbuttonDisabled">SOLD</button>
+            <button mat-raised-button color="primary" class="btn-back" (click)='unsoldplayer()'
+              [disabled]="unsoldbuttonDisabled">UNSOLD</button>
+          </div>
+          <div class="btn-div">
+            <button mat-raised-button color="primary" class="btn-back" (click)='changeplayer()'>C. PLAYER</button>
+            <button mat-raised-button color="primary" class="btn-back" (click)='editbid()'>UNBID</button>
+          </div>
+          <div class='btn-updiv'>
+            <button mat-raised-button color="primary" class="btn-back" (click)='openPushDialog()'>SETTING</button>
+            <button mat-raised-button color="warm" class="btn-backred" (click)='stop()'>STOP</button>
+          </div>
+        </ng-container>
+        <ng-container>
+          <div *ngIf='isdataShow' class="maindiv">
+            <img class="teamimage" src="{{player_image}}" onError="src = 'assets/image/defaultPlayer.png'">
+            <div class="lablediv">
+              <label>Reg Id:{{regiid}}</label><br>
+              <label>Name:{{name}}</label><br>
+              <label>Date Of Birth:{{dob}}</label><br>
+              <label>AGE:{{age}}</label><br>
+              <label>Native:{{native}}</label><br>
+              <label>Player Type:{{playertp}}</label><br>
+              <label>Mobile Number:{{mobile}}</label>
+            </div>
+          </div>
+        </ng-container>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <label>Players</label>
+          <mat-icon class="example-tab-icon iconcolor" (click)='getPlayer()'>people</mat-icon>
+        </ng-template>
+        <div class=' w100 fl'>
+          <div class="w100 fl tableDiv ">
+
+
+
+            <mat-form-field class="example-form-field searchmat">
+              <mat-label>Search</mat-label>
+              <mat-icon matSuffix style="float: left;">search</mat-icon>
+              <input matInput (keyup)="applyFilterplayer($event)" [(ngModel)]="value" placeholder="">
+              <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="w100 fl oAuto tableDiv">
+
+            <table mat-table [dataSource]="dataSourceplayer" class="mat-elevation-z8">
+              <ng-container matColumnDef="no" sticky >
+                <th mat-header-cell *matHeaderCellDef> No </th>
+                <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.no}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="regi_id" sticky>
+                <th mat-header-cell *matHeaderCellDef> Reg No </th>
+                <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.regi_id}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Player Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="player_image">
+                <th mat-header-cell *matHeaderCellDef>Profile</th>
+                <td mat-cell *matCellDef="let element">
+                  <img [src]="element.player_image" class="teamimg" onError="src = 'assets/image/defaultPlayer.png'">
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="team_name">
+                <th mat-header-cell *matHeaderCellDef> Team Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.team_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="biding_amount">
+                <th mat-header-cell *matHeaderCellDef>Bidding</th>
+                <td mat-cell *matCellDef="let element"> {{element.biding_amount}} </td>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-mini-fab color="primary" aria-label="Edit" style="margin:3px;">
+                    <mat-icon class="pointer coloricon" mat-mini-fab
+                      (click)='editbidding(element.action)'>edit</mat-icon>
+                  </button>
+                  <button mat-mini-fab color="warn" aria-label="delete">
+                    <mat-icon class="pointer delete" mat-mini-fab (click)='unbidding(element.action)'>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsplayer"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsplayer;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]='[25,50, 100, 200]' showFirstLastButtons></mat-paginator>
+          </div>
+          <div class="w100 fl tableDiv ">
+
+            <div class="loader-div" *ngIf='isLoaderShow'>
+              <mat-progress-spinner mode='indeterminate' diameter='50'
+                style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
+              </mat-progress-spinner>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <label>Team</label>
+          <mat-icon class="example-tab-icon iconcolor" (click)='getTeam()'>group</mat-icon>
+        </ng-template>
+        <div class='p15 w100 fl'>
+          <div class="w100 fl tableDiv ">
+            <mat-form-field class="example-form-field searchmat">
+              <mat-label>Search</mat-label>
+              <mat-icon matSuffix style="float: left;">search</mat-icon>
+              <input matInput (keyup)="applyFilter($event)" [(ngModel)]="value1" placeholder="">
+              <button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch1()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+
+          
+          </div>
+          <div class="w100 fl oAuto tableDiv">
+
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="no">
+                <th mat-header-cell *matHeaderCellDef> No </th>
+                <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.no}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="team_bid">
+                <th mat-header-cell *matHeaderCellDef> Biding</th>
+                <td mat-cell *matCellDef="let element"> {{element.team_bid}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="team_image">
+                <th mat-header-cell *matHeaderCellDef>Team Image </th>
+                <td mat-cell *matCellDef="let element">
+                
+                  <img [src]="element.team_image" class="teamimg" onError="src = 'assets/image/defaultPlayer.png'">
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="team_player">
+                <th mat-header-cell *matHeaderCellDef>Count Player </th>
+                <td mat-cell *matCellDef="let element"> {{element.team_player}} </td>
+              </ng-container>
+              <ng-container matColumnDef="team_type">
+                <th mat-header-cell *matHeaderCellDef> Team Type</th>
+                <td mat-cell *matCellDef="let element" class="typepadding">{{element.team_type}} </td>
+              </ng-container>
+              <ng-container matColumnDef="team_name">
+                <th mat-header-cell *matHeaderCellDef> Team Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.team_name}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+          <div class="w100 fl tableDiv ">
+            <mat-paginator [pageSizeOptions]='[5,25,50, 100, 200]' #paginator showFirstLastButtons></mat-paginator>
+            <div class="loader-div" *ngIf='isLoaderShow'>
+              <mat-progress-spinner mode='indeterminate' diameter='50'>
+              </mat-progress-spinner>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span style="width: 100%;" (click)='unbiddedlist()'>Unbidded</span>
+        </ng-template>
+        
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

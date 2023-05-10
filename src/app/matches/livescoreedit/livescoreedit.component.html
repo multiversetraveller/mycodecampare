@@ -1,0 +1,121 @@
+<div class='w100 p15 fl h100'>
+    <div class="label-form">
+      <label>Edit Live Score</label>
+    </div>
+    <div class="example-form">
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 1 Name</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 2 Name</mat-label>
+          <input matInput [(ngModel)]='txtteam2name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 1 Score</mat-label>
+          <input matInput [(ngModel)]='txtteam1score'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 2 Score</mat-label>
+          <input matInput [(ngModel)]='txtteam2score'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 1 Over</mat-label>
+          <input matInput [(ngModel)]='txtteam1over'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 2 Over</mat-label>
+          <input matInput [(ngModel)]='txtteam2over'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 1 Wicket</mat-label>
+          <input matInput [(ngModel)]='txtteam1wicket'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Teame 2 Wicket</mat-label>
+          <input matInput [(ngModel)]='txtteam2wicket'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 1</mat-label>
+          <input matInput [(ngModel)]='txtbatsman1'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 2</mat-label>
+          <input matInput [(ngModel)]='txtbatsman2'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 1 Ball</mat-label>
+          <input matInput [(ngModel)]='txtbatsman1ball'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 2 Ball</mat-label>
+          <input matInput [(ngModel)]='txtbatsman2ball'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 1 Run</mat-label>
+          <input matInput [(ngModel)]='txtbatsman1run'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 2 Run</mat-label>
+          <input matInput [(ngModel)]='txtbatsman2run'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 1 Four(4)</mat-label>
+          <input matInput [(ngModel)]='txtbatsman1four'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 2 Four(4)</mat-label>
+          <input matInput [(ngModel)]='txtbatsman2four'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 1 Six(6)</mat-label>
+          <input matInput [(ngModel)]='txtbatsman1six'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Batsman 2 Six(6)</mat-label>
+          <input matInput [(ngModel)]='txtbatsman2six'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bowler</mat-label>
+          <input matInput [(ngModel)]='txtbowlername'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bowler Ball</mat-label>
+          <input matInput [(ngModel)]='txtbowlerball'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bowler Run</mat-label>
+          <input matInput [(ngModel)]='txtbowlerrun'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Bowler Run</mat-label>
+          <input matInput [(ngModel)]='txtbowlerwicket'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Innings</mat-label>
+          <input matInput [(ngModel)]='txtinnings'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>First Message</mat-label>
+          <input matInput [(ngModel)]='txtfirstmsg'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Second Message</mat-label>
+          <input matInput [(ngModel)]='txtsecondmsg'>
+        </mat-form-field>
+      </div>
+    </div> 
+    <div class='btn-div p15 fl w100'>
+      <button mat-button class="btn-save fl" (click)="back()">
+        Back
+      </button>
+      <button mat-button class="btn-save fr" (click)="updateLiveMatch()">
+        Update Live Score
+      </button>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div> 

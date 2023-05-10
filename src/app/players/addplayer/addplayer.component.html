@@ -1,0 +1,256 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20' *ngIf='!isCropper'>
+        <div class="label-form">
+            <label>Add PLayer Detail Form</label>
+        </div>
+
+        <div class="mat-form-field mb20">
+            <mat-grid-list cols="2" rowHeight="6:2">
+                <mat-grid-tile>
+                    <div class="mat-form-fields mb20">
+                        <input type="file" (change)="fileChangeEvent($event,'player')" id="file-upload">
+                        <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Player
+                            Image</label>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <img *ngIf='playerImage' [src]="playerImage" class="image-after-crop" />
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Player Type</mat-label>
+            <mat-select [(ngModel)]="selected">
+                <mat-option>Select Player Type</mat-option>
+                <mat-option value="Junior">Junior</mat-option>
+                <mat-option value="Regular">Regular</mat-option>
+                <mat-option value="Senior">Senior</mat-option>
+                <mat-option value="Women">Women</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <mat-label>Select Team</mat-label>
+            <mat-select [(value)]="selectedTeam">
+                <mat-option>Select Team </mat-option>
+                <mat-option *ngFor='let item of playerteam' [value]="item.team_id">{{item.team_name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Register No" type="number" [(ngModel)]='registeno'>
+        </mat-form-field>
+
+
+
+        <mat-form-field>
+            <input matInput placeholder="Bid Value" type="number" [(ngModel)]='bidvalue'>
+        </mat-form-field>
+        <div class="matss ">
+            <mat-label  id="example-radio-group-label">Bid Status</mat-label><br>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]='bidstatus'>
+                <mat-radio-button class="example-radio-button" *ngFor="let season of seasons ;" [value]="season">
+                     {{season}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="matss ">
+            <mat-label id="example-radio-group-label">Player Class</mat-label><br>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]='playerclass'>
+                <mat-radio-button class="example-radio-button" *ngFor="let playerc of playerc ;" [value]="playerc">
+                    {{playerc}}
+               </mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <mat-form-field>
+            <input matInput placeholder="Player Name" [(ngModel)]='playername'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Father Name" [(ngModel)]='fathername'>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Surname" [(ngModel)]='surname'>
+        </mat-form-field>
+        <div class="matss ">
+            <mat-label class="dpl">Marital Status</mat-label><br>
+            <mat-radio-group [(ngModel)]='maritalatatus'>
+                <mat-radio-button class="example-radio-button" *ngFor="let mStatus of mStatus ;" [value]="mStatus">
+                    {{mStatus}}
+               </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="example-full-width" cellspacing="0">
+            <mat-form-field class="example-full-width">
+                <mat-label>Date OF Birth</mat-label>
+                <input matInput [matDatepicker]="picker" (dateChange)="calculateAge($event)"
+                    [(ngModel)]='txtplayerBdate'>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Age</mat-label>
+                <input matInput placeholder="Age" [value]='playerAge' disabled>
+            </mat-form-field>
+        </div>
+       
+        <mat-form-field>
+            <input matInput placeholder="Mobile Number" type='number' [(ngModel)]='playermobno'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]='playeremail'>
+        </mat-form-field>
+
+        <div class="label-form">
+            <label>Optional</label>
+        </div>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Resident Address</mat-label>
+            <textarea matInput placeholder="" [(ngModel)]="txtResidenceAddress"></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Resident Telephone</mat-label>
+            <input matInput placeholder="" type='number' [(ngModel)]="txtResidenceTelephone">
+        </mat-form-field>
+        <div class="w100 mat-form-field mb20" style="margin: -20px 20px auto;">
+            <mat-checkbox (change)='sameAdd($event)'>Same Address ?</mat-checkbox>
+        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Office Address</mat-label>
+            <textarea matInput [(ngModel)]='txtOfficeAddress'></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Office Telephone</mat-label>
+            <input matInput placeholder="" type='number' [(ngModel)]='txtOfficeTelephone'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Office Mobile</mat-label>
+            <input matInput placeholder="" type='number' [(ngModel)]='txtOfficeMobile'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Native</mat-label>
+            <input matInput placeholder="" [(ngModel)]='txtNative'>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Weast Size</mat-label>
+            <mat-select [(ngModel)]='weastsize'>
+                <mat-option>Select Weast size</mat-option>
+                <mat-option value="26Cm">26 Cm</mat-option>
+                <mat-option value="28Cm">28 Cm</mat-option>
+                <mat-option value="30Cm">30 Cm</mat-option>
+                <mat-option value="32Cm">32 Cm</mat-option>
+                <mat-option value="34Cm">34 Cm</mat-option>
+                <mat-option value="36Cm">36 Cm</mat-option>
+                <mat-option value="38Cm">38 Cm</mat-option>
+                <mat-option value="40Cm">40 Cm</mat-option>
+                <mat-option value="42Cm">42 Cm</mat-option>
+                <mat-option value="44Cm">44 Cm</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Track Size</mat-label>
+            <mat-select [(ngModel)]='tracksize'>
+                <mat-option>Select Track Size</mat-option>
+                <mat-option value="28Cm">28 Cm</mat-option>
+                <mat-option value="28Cm">30 Cm</mat-option>
+                <mat-option value="32Cm">32 Cm</mat-option>
+                <mat-option value="34Cm">34 Cm</mat-option>
+                <mat-option value="36Cm">36 Cm</mat-option>
+                <mat-option value="38Cm">38 Cm</mat-option>
+                <mat-option value="40Cm">40 Cm</mat-option>
+                <mat-option value="42Cm">42 Cm</mat-option>
+                <mat-option value="44Cm">44 Cm</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>T-Shirt Size</mat-label>
+            <mat-select [(ngModel)]='Tshirtsize'>
+                <mat-option>Select T-Shirt Size</mat-option>
+                <mat-option value="L">L</mat-option>
+                <mat-option value="M">M</mat-option>
+                <mat-option value="S">S</mat-option>
+                <mat-option value="XL">XL</mat-option>
+                <mat-option value="XXL">XXL</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Lucky No</mat-label>
+            <input matInput placeholder="" [(ngModel)]='luckyno'>
+        </mat-form-field>
+        <div class="label-form">
+            <label>Player Info</label>
+        </div>
+        <div class=" w100 mat-form-field mb20 width12">
+            <mat-checkbox class="width12" [(ngModel)]='Bowler' value="Bowler">Bowler</mat-checkbox>
+            <mat-checkbox class="width12 " [(ngModel)]='AllRounder' (change)="allTrades($event)">AllRounder</mat-checkbox>
+            
+            <mat-checkbox class="width12" [(ngModel)]='Batsman'>Batsman</mat-checkbox>
+            <mat-checkbox class="width12" [(ngModel)]='WicketKeeper'>Wicket Keeper</mat-checkbox>
+        </div>
+
+        <!-- <div class=" w100 mat-form-field mb20 width12" *ngIf = 'Bowler == true'>
+      <mat-checkbox class="sw100"  value="">spinner</mat-checkbox>
+      <mat-checkbox class="sw100 ne2" >faster</mat-checkbox>
+      </div> -->
+
+        <!-- <div class="mat-form-field" *ngIf = 'Bowler == true || AllRounder == true' > -->
+        <div class="mat-form-field" style="margin: 25px;">
+            <mat-label class="dpl">BOWLER</mat-label><br>
+            <mat-radio-group [(ngModel)]='BowlerType'>
+                <mat-radio-button value="spinner" name="trades">Spinner</mat-radio-button>
+                <mat-radio-button class="width12" value="faster">Fast Bowler</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <!-- <div class="mat-form-field" *ngIf = 'Batsman == true || AllRounder == true'> -->
+        <div class="mat-form-field" style="margin: 20px;">
+            <mat-label class="dpl">BATSMAN</mat-label><br>
+            <mat-radio-group [(ngModel)]='Batsman_Type'>
+                <mat-radio-button value="lefthand">Left Handed</mat-radio-button>
+                <mat-radio-button class="width12" value="righthand">Right Handed</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+
+        <div class='btn-div'>
+            <button mat-button class="btn-back" (click)="back()">
+                BACK
+            </button>
+            <button mat-button class="btn-save fr" (click)="addplayer($event)">
+                SAVE
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf='isCropper' class="cropper-div" [ngStyle]="{'height': popupHeight}">
+        <div class="cropper-sub-div">
+            <button mat-button (click)='scalePlus()' class="scale-button plus-btn">
+                <i class="material-icons">zoom_in</i>
+            </button>
+            <button mat-button (click)='scaleDown()' class="scale-button minus-btn">
+                <i class="material-icons">zoom_out</i>
+            </button>
+            <button mat-button class="confirm-button" (click)='cropConfirm()'>Confirm</button>
+            <img [src]="croppedImage" class='cropped-image' />
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" format="jpeg"
+                [cropper]="cropper" [imageQuality]="imageQuality" [resizeToWidth]="resizeToWidth"
+                [resizeToHeight]="resizeToHeight" [transform]="transform" (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()">
+            </image-cropper>
+        </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+        <mat-progress-spinner mode='indeterminate' diameter='50'>
+        </mat-progress-spinner>
+    </div>
+</div>

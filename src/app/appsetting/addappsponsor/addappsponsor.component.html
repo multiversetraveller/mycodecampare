@@ -1,0 +1,59 @@
+<div class='w100 p15 fl btn-div'>
+    <button mat-raised-button class="btn-back " (click)="back()">
+      BACK
+    </button>
+</div>
+<div class='w100 p15 fl h100'>
+  <div class='full-form mb20' *ngIf='!isCropper'>
+    <div class="label-form">
+      <label>App Sponsor</label>
+    </div>
+    <div class="example-form">
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput [(ngModel)]='txtTitle'>
+        </mat-form-field>
+      </div>
+        <div class="example-full-width mb20">
+          <mat-grid-list cols="1" rowHeight="10:1">
+            <mat-grid-tile>
+                <div class="mat-form-fields mb20">
+                    <input type="file"(change)="fileChangeEvent($event)" id="file-upload">
+                    <label class="label-upload"><i class="fa fa-upload" aria-hidden="true"></i>Choose Image</label>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile style="    margin-top: calc((0% - 0px + 1px) * 1) !important;">
+                <img *ngIf='sponsorImage' [src]="sponsorImage" class="image-after-crop" />
+            </mat-grid-tile>
+        </mat-grid-list>
+        </div>
+      
+      <div class='btn-div'>
+        <button mat-raised-button class="btn-save" (click)="save()">
+          SAVE
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf='isCropper' class="cropper-div" [ngStyle]="{'height': popupHeight}">
+    <div class="cropper-sub-div">
+      <button mat-button (click)='scalePlus()' class="scale-button plus-btn">
+        <i class="material-icons">zoom_in</i>
+      </button>
+      <button mat-button (click)='scaleDown()' class="scale-button minus-btn">
+        <i class="material-icons">zoom_out</i>
+      </button>
+      <button mat-button class="confirm-button" (click)='cropConfirm()'>Confirm</button>
+      <img [src]="croppedImage" class='cropped-image' />
+      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" format="jpeg"
+        [cropper]="cropper" [imageQuality]="70" [resizeToWidth]="256" [resizeToHeight]="256" [transform]="transform"
+        (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()">
+      </image-cropper>
+    </div>
+  </div>
+  <div class="loader-div" *ngIf='isLoaderShow'>
+    <mat-progress-spinner mode='indeterminate' diameter='50'>
+    </mat-progress-spinner>
+  </div>
+</div>

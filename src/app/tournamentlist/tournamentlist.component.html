@@ -1,0 +1,27 @@
+<div class='p15 w100 fl'>
+    <mat-form-field class="example-form-field">
+      <input matInput type="text" placeholder="Search" [(ngModel)]='searchtournament' (keypress)='search()'>
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="mt_15">
+      <div class="series_btn dashboard_btnbg"
+        [ngStyle]="{ 'background': 'url(' + item.image + ') no-repeat 0px 0px', 'background-size': 'cover'}"
+        (click)="goLogin(item.tour_type)" *ngFor="let item of series_info">
+        <div class="w100p overflowdot bg_ff app_fontcolor">{{item.tour_type}}</div>
+        <div class="tournament_detail tournament_btnbg">
+          <div class="type_full_form">{{item.fullform}}</div>
+          <div class="type_place_div">
+            <div>Place : {{item.place}}</div>
+            <div>Total Series : {{item.totalseries}}</div>
+          </div>
+          <div class="upcoming_series">
+            {{item.upcomingstatus}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-progress-spinner *ngIf='isLoading' color='primary' mode='indeterminate' diameter='50'>
+  </mat-progress-spinner>

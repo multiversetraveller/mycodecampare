@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Push Notification</h1>
+<!-- <mat-form-field class='w100 mb20'>
+  <mat-label>Message</mat-label>
+  <textarea matInput></textarea>
+</mat-form-field> -->
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Message</mat-label>
+  <textarea matInput >{{message}}</textarea>
+</mat-form-field>
+<div mat-dialog-actions >
+  <button mat-button class="dialogOkBtn" (click)="send()">SEND</button>
+  <button mat-button class="dialogCancelBtn" (click)="onCancelClick()">CANCEL</button>
+</div>

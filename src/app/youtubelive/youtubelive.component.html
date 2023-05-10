@@ -1,0 +1,14 @@
+<div class="w100 fl p15">
+    <div class="form-div">
+          <mat-form-field class="example-full-width w100">
+                <mat-label>Live Url</mat-label>
+                <input matInput  [(ngModel)]="txtlink" >
+              </mat-form-field>
+             <p> <button  mat-raised-button color="primary" class='sendBtn mb20' (click)='sendURL()'>Get Url</button></p>
+                <mat-form-field class="example-full-width w100">
+                    <mat-label>Youtube Link Id</mat-label>
+                    <input matInput  [(ngModel)]="txtYoulink" >
+                  </mat-form-field>
+                 <p> <button mat-raised-button color="primary" class='sendBtn' (click)='sendLink()'>Add Link</button></p>
+    </div>
+  </div>

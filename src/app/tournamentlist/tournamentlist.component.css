@@ -1,0 +1,62 @@
+/* ::ng-deep .mat-toolbar{display: none;}
+::ng-deep .mat-sidenav{display: none;}
+::ng-deep .example-sidenav-container{margin-top: 0px !important;} */
+mat-form-field{width: 100%;}
+
+p{margin:0px;}
+.overflowdot{height: 25px;overflow: hidden; font-weight: bold;  letter-spacing: 5px; border-radius: 0px; text-overflow: ellipsis; white-space: nowrap; text-align: center;  line-height: 25px; text-transform: uppercase;}
+
+.type_full_form{text-align:center; height:30px; line-height: 30px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+
+.type_place_div{height:20px; width:100%;} 
+.type_place_div div{float: left; width:50%; height: 20px; line-height: 20px; font-size: 12px;}
+.upcoming_series{width:100%; height:40px; line-height: 20px; overflow: hidden; padding: 0px 5px; font-size: 12px;}
+.w_100p{width:100%;}
+.w_80p{width:80%;}
+.w_41p{width:41%;}
+.w_40p{width:40%;} 
+
+.w_38p{width:38%;}
+.w_20p{width:20%;}
+.w_18p{width:18%;}
+.bg_ff {       background-color: rgb(201 217 249);
+   color: #000;
+   box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;}
+
+
+
+.mt_15{margin-top:15px;}
+
+.pl_5{padding-left:5px;}
+.color_fff{color:#fff;}
+.fs_18{font-size:18px;}
+
+/* .dashboardbg{background-image:url(../assets/image/globalseries.jpeg) !important;background-size: 100% 100%; background-repeat: no-repeat;} */
+.main_div{background-color: rgba(0,0,0,0.7);position: absolute;width: 100%;min-height: 100%;}
+.text_left{text-align:left;}
+.text_center{text-align:center;}
+.tournament_btnbg {
+   background-color: rgb(0 48 121 / 54%);
+}
+
+.series_btn{ height: auto;color: #fff; border-radius: 4px; margin-bottom: 10px; text-align: center; line-height: 45px;font-size: 15px;width: 100%; box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px, rgb(209 213 219) 0px 0px 0px 1px inset;}
+
+@media screen and (max-device-width : 360px){
+   .series_btn{font-size: 14px;}
+}
+@media screen and (max-device-width : 320px){
+   .series_btn{font-size: 13px;}
+}
+
+.trybtn{height: 45px;
+    color: #fff;
+   margin:auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    width: 30%;
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+    font-weight: bold;}

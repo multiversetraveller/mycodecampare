@@ -1,0 +1,83 @@
+<div class="w100 p15 fl">
+    <button mat-raised-button class="btn" (click)='Addmatch()'>Add Match</button>
+</div>
+<div class="w100 p15 fl">
+    <div class=" w100 fl tableDiv ">
+      
+
+        <mat-form-field class="example-form-field searchmat"  >
+            <mat-label>Search</mat-label>
+            <mat-icon matSuffix style="float: left;">search</mat-icon>
+            <input matInput (keyup)="applyFilter($event)" [(ngModel)]="value" placeholder="">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+
+    <div class="mat-elevation-z8 oAuto tableDiv w100">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="no" sticky>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+                <td mat-cell *matCellDef="let row" class="tc"> {{row.no}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="firstteam" > 
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Team </th>
+                <td mat-cell *matCellDef="let row"> {{row.firstteam}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="secondteam">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Second Team </th>
+                <td mat-cell *matCellDef="let row" class="tc"> {{row.secondteam}} </td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="over">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Over </th>
+                <td mat-cell *matCellDef="let row" class="tc"> {{row.over}} </td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="time">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+                <td mat-cell *matCellDef="let row" class="tc"> {{row.time}} </td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let row" class="tc">{{row.date}}</td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="createddate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
+                <td mat-cell *matCellDef="let row" class="tc">{{row.createddate}}</td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-flat-button color="primary" style=" margin: 2px; " (click)='edit(row.action)'>Edit</button>
+                    <button mat-flat-button color="warn" (click)='delete(row.action)'>Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+        <mat-paginator [pageSize]="20" [pageSizeOptions]="[25, 50, 75, 100] "></mat-paginator>
+        <div class="loader-div" *ngIf='isLoaderShow'>
+            <mat-progress-spinner mode='indeterminate' diameter='50'  style="position: absolute; left: -50%; top:-50%; transform: translate(-50%,-50%);">
+            </mat-progress-spinner>
+        </div>
+    </div>
+       
+</div>

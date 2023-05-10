@@ -1,0 +1,25 @@
+<!-- <span > </span>
+<div >
+          <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor='let item of playersTeam' (click)="onclickfun(item.player_id)">
+
+              <h3 matLine style="text-align: left;"> {{item.player_name}} </h3>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+</div> -->
+<mat-list>
+ 
+  <div mat-subheader>SELECT {{type}}</div>
+
+  <mat-list-item *ngFor='let item of playersTeam' (click)="onclickfun(item.player_id)">
+    <div class='team_div'>
+
+   <img style="width: 30px; height: 30px;"  mat-card-avatar [src]="item.player_image" alt="..."  onerror="this.src='assets/image/ball.jpg';">
+
+    <p>{{item.player_name}}</p>
+  </div>
+  <mat-divider></mat-divider>
+
+  </mat-list-item>
+</mat-list>

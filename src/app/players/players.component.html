@@ -1,0 +1,89 @@
+<div id="progress-bar" [ngClass]="{'show': loading}">
+  <mat-progress-bar id="progress-bar-inner" mode="indeterminate"></mat-progress-bar>
+</div>
+<div class='p15 w100 fl'>
+  <button mat-raised-button class="btn mb20" (click)='playerAdd()'>Add New Player</button>
+  <div class="w100 fl tableDiv ">
+
+
+
+    <mat-form-field class="example-form-field searchmat">
+      <mat-label>Search</mat-label>
+      <mat-icon matSuffix style="float: left;">search</mat-icon>
+      <input matInput (keyup)="applyFilter($event)" [(ngModel)]="value" placeholder="">
+      <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearsearch()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="w100 fl oAuto tableDiv">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+      <ng-container matColumnDef="no" sticky>
+        <th mat-header-cell *matHeaderCellDef> No </th>
+        <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.no}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="regi_id" sticky>
+        <th mat-header-cell *matHeaderCellDef> Reg No </th>
+        <td mat-cell *matCellDef="let element" class="collumnDt tc"> {{element.regi_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name" sticky>
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} {{element.fathername}} {{element.surname}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="biding_amount" sticky>
+        <th mat-header-cell *matHeaderCellDef> Biding Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.biding_amount}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="age" sticky>
+        <th mat-header-cell *matHeaderCellDef> age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile_number" sticky>
+        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile_number}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="player_image" sticky>
+        <th mat-header-cell *matHeaderCellDef> Player Image </th>
+        <td mat-cell *matCellDef="let element">
+          <img [src]="element.player_image" class="teamimage" onError="src = 'assets/image/defaultPlayer.png'">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="player_type" sticky>
+        <th mat-header-cell *matHeaderCellDef> Player Type</th>
+        <td mat-cell *matCellDef="let element"> {{element.player_type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="team_name" sticky>
+        <th mat-header-cell *matHeaderCellDef> Team Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.team_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action" sticky>
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-flat-button color="primary" style="margin: 5px;"
+            (click)='editPlayer(element.action)'>Edit</button>
+          <button mat-flat-button color="warn" (click)='deletePlayer(element.action)'>Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]='[25,50, 100, 200]' showFirstLastButtons></mat-paginator>
+
+  </div>
+
+</div>
+

@@ -1,0 +1,6 @@
+.form-div{    margin: auto;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.sendBtn{    display: flex;
+    color: #fff !important;
+    float: right;
+}

@@ -1,0 +1,80 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20' *ngIf='!isCropper'>
+      <div class="label-form">
+        <label>Sponsor Member Detail</label>
+      </div>
+      <div class="example-form">
+        <div class="example-full-width" cellspacing="0">
+          <mat-form-field class="example-full-width">
+            <mat-label>Sponsor Name</mat-label>
+            <input matInput [(ngModel)]='txtSponsorName' required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Sponsor Type (Title)</mat-label>
+            <input matInput [(ngModel)]='txtSponsorType' required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Father Name</mat-label>
+            <input matInput [(ngModel)]='txtFatherName'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Surname</mat-label>
+            <input matInput [(ngModel)]='txtSurname'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Company</mat-label>
+            <input matInput [(ngModel)]='txtCompany'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile</mat-label>
+            <input matInput type="number" [(ngModel)]='txtMobile'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]='txtEmail'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Website</mat-label>
+            <input matInput [(ngModel)]='txtWebsite'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address</mat-label>
+            <input matInput [(ngModel)]='txtAddress'>
+          </mat-form-field>
+          <div class="example-full-width mb20">
+            <mat-label>Sponsor Image</mat-label>
+            <input type="file" (change)="fileChangeEvent($event)" class='w100'>
+            <img *ngIf='sponsorImage' [src]="sponsorImage" class="image-after-crop" />
+          </div>
+        </div>
+      </div>
+      <div class='btn-div'>
+        <button  mat-raised-button  color="primary" (click)="back()">
+          BACK
+        </button>
+        <button mat-raised-button color="primary" class="btn-save fr" (click)="save()">
+          SAVE
+        </button>
+      </div>
+    </div>
+    <div *ngIf='isCropper' class="cropper-div" [ngStyle]="{'height': popupHeight}">
+      <div class="cropper-sub-div">
+        <button mat-raised-button (click)='scalePlus()' color="primary">
+          <i class="material-icons">zoom_in</i>
+        </button>
+        <button mat-raised-button (click)='scaleDown()' color="primary">
+          <i class="material-icons">zoom_out</i>
+        </button>
+        <button mat-button class="confirm-button" (click)='cropConfirm()'>Confirm</button>
+        <img [src]="croppedImage" class='cropped-image' />
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" format="jpeg"
+          [cropper]="cropper" [imageQuality]="70" [resizeToWidth]="256" [resizeToHeight]="256" [transform]="transform"
+          (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()">
+        </image-cropper>
+      </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50' style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);">
+      </mat-progress-spinner>
+    </div>
+  </div>

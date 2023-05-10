@@ -1,0 +1,35 @@
+.full-form{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);padding: 10px;}
+mat-form-field {width: 46% !important; padding-bottom: 2px;margin-left: 2%; margin-right: 2%;}
+.btn-div button{background: #3f51b5; color: #fff;}
+.label-form{width: 100%;font-size: 20px;font-weight: bolder; padding: 0px; height: 40px;}
+::ng-deep .resize, ::ng-deep .resize-bar {pointer-events: none;}
+.scale-button{float: left;background-color: #3f51b5;color: #fff; font-size: 20px; position: absolute;top: 0;left: 0; padding: 0; min-width: 50px; width: 50px;}
+.cropper-div{position: absolute;background-color: #fff; height: 100%; width: 100%; top: 0; left: 0;}
+.cropper-sub-div{box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12); background: #fff;position: absolute; top: 20px; bottom: auto; width: 90%; left: 0; right: 0; margin: auto; display: block; overflow: hidden; padding-top: 100px;}
+.minus-btn{left: 55px;}
+.cropped-image{position: absolute;right: 0;top: 0;width: 100px;height: 100px;}
+.confirm-button{position: absolute; top: 45px; background: green; color: #fff; left: 0px; width: 105px;}
+.image-after-crop{height: 100px; width: 100px; border: 1px solid #000; margin-top: 15px;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.btn {
+  background-color: green;
+  color: #fff;
+}
+.matsets{
+    display: inline-flex;
+    width: 100%;
+    margin: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+    mat-grid-tile{
+        margin-top: -38px !important;
+          padding-top: calc((32.6667% - 0.5px) * 1 + 0px) !important;
+      }
+  mat-form-field {width: 96% !important;}
+
+  .mat-grid-tile-content {
+position: relative !important;  
+}
+  
+}

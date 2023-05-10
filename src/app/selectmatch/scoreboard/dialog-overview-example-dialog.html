@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>OUT</h1>
+<div mat-dialog-content>
+  <mat-form-field class="w100">
+    <mat-label>Select Batsman</mat-label>
+    <mat-select [(ngModel)]='outedBatsmanId'>
+      <mat-option [value]="batsman1Ids">
+        <span>{{batsman1s}}</span>
+      </mat-option>
+      <mat-option [value]="batsman2Ids">
+        <span>{{batsman2s}}</span>
+      </mat-option>
+      <mat-option [value]="item.player_id" *ngFor='let item of outedBatsman'>
+        <span style="color: red;">{{item.player_name}}</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="w100">
+    <mat-label>Over</mat-label>
+    <input matInput placeholder="Over" (mouseup)="$any($event.target).select()" [(ngModel)]='overBall'>
+  </mat-form-field>
+  <mat-form-field class="w50">
+    <mat-label>Wicket Type</mat-label>
+    <mat-select [(ngModel)]='wicketType'>
+      <mat-option value="b">
+        <span>Bold</span>
+      </mat-option>
+      <mat-option value="c">
+        <span>Catch Out</span>
+      </mat-option>
+      <mat-option value="r">
+        <span>Run Out</span>
+      </mat-option>
+      <mat-option value="lb">
+        <span>LBW</span>
+      </mat-option>
+      <mat-option value="st">
+        <span>Stumping</span>
+      </mat-option>
+      <mat-option value="hw">
+        <span>Hit Wicket</span>
+      </mat-option>
+      <mat-option value="retired">
+        <span>Retired</span>
+      </mat-option>
+      <mat-option value="retiredhurt">
+        <span>Retired Hurt</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-label style="padding-left: 66px !important;font-size: 36px !important;font-weight: 900 !important;">By</mat-label> 
+  <mat-form-field class="w100">
+    <!-- <mat-label>Wicket By</mat-label> -->
+    <mat-select [(ngModel)]='takenBowlerId'>
+      <mat-option [value]="item.player_id" *ngFor='let item of bowlingPlayers'>
+        <span>{{item.name}} {{item.fathername}} {{item.surname}}</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="dialogOkBtn" (click)="onOkClick()">OK</button>
+  <button mat-button class="dialogCancelBtn" (click)="onCancelClick()">Cancel</button>
+</div>

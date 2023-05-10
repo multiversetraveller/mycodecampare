@@ -1,0 +1,11 @@
+.example-container {display: flex;flex-direction: column; position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+.example-is-mobile .example-toolbar {position: fixed; z-index: 2;}
+h1.example-app-name {    margin: 0 auto !important;
+}
+.example-sidenav-container {flex: 1;}
+.example-is-mobile .example-sidenav-container {flex: 1 0 auto;}
+/* .ActiveItem{border-left: 5px solid #424242 !important; background-color: rgba(255,255,255,0.3) !important;} */
+::ng-deep .mat-progress-spinner{position: absolute !important; left: 0; right: 0; margin: 0 auto; top: 42%; bottom: 0;}
+.mat-sidenav{width: 250px;}
+.menuIcon {width: 30px; color: #fff; background: #3f51b5;border-radius: 50%; height: 30px; text-align: center; line-height: 28px;  margin-right: 15px; font-size:18px;}
+mat-sidenav-container{background-color: #fff;}

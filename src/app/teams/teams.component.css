@@ -1,0 +1,28 @@
+.btn{ background-color: green !important; right: 2px; float: right; top: 5px; color: #f0f3f5 !important;}
+.maindiv{ background-color: #fff; background-position: center center; background-size: cover; background-repeat: no-repeat; width: 100%; padding: 15px;}
+.btnNext{background-color: #3f51b5; color: #fff; width: 100%; position: fixed; left: 0; bottom: 0; height:50px;}
+.matchDiv{box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); background-color: #fff; height: 82px; width: 100%;padding: 4px;}
+.btnDelete{background-color: red;  float: left;  color: #f0f3f5; height: 20px; line-height: 21px; width: 65px; min-width: 65px;}
+.date-div{position: absolute; right: 0; width: 88px; text-align: center;}
+.date-div p:first-child{margin: 0;font-size: 45px; font-weight: bold; color: #3f51b5;}
+.date-div p:nth-child(2){margin: 0;}
+.editbtn {background-color: #3f51b5; margin-right: 10px; float: left; color: #f0f3f5; height: 20px; line-height: 21px; width: 65px; min-width: 65px;}
+.mb20{margin-bottom: 20px;}
+.teamimage{height: 40px; width: 40px;}
+.collumnDt {padding-left: 17px;padding-right: 22px;}
+.oAuto{overflow: auto;}
+table{min-width: 1000px; width: 100%;}
+.mat-header-row {background-color: #3f51b5;}
+.mat-header-cell{color: #fff; text-align: center; font-weight: 500;}
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {padding-left: 10px;padding-right: 10px;}
+td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {padding-left: 10px; padding-right: 10px; width: 141px;}
+.tableDiv{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);}
+.mat-cell, .mat-header-cell {border-right: 1px solid #ccc;}
+.td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {padding-left: 10px; padding-right: 10px;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.searchtab {font-size: 14px; width: auto; height: 71px;
+    top: 11px;  padding: 0px 20px; float: right; }
+.searchmat{
+        display: flex !important;
+        flex-direction: column !important;
+}

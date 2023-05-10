@@ -1,0 +1,18 @@
+.full-form{    padding: 30px;
+    border-radius: 8px;}
+mat-form-field {width: 46% !important; padding-bottom: 2px;margin-left: 2%; margin-right: 2%;}
+.btn-div button{color: #fff !important;}
+.label-form{width: 100%;font-size: 20px;font-weight: bolder; padding: 0px; height: 40px;}
+.radioWidth{width: 25%; float: left; margin-bottom: 5px;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+
+@media only screen and (max-width: 1200px) {
+  .radioWidth{width: 33.33333%; float: left;}
+}
+@media only screen and (max-width: 800px) {
+  .radioWidth{width: 50%; float: left;}
+}
+@media only screen and (max-width: 600px) {
+  mat-form-field {width: 96% !important;}
+  .radioWidth{width: 100%; float: left;}
+}

@@ -1,0 +1,96 @@
+.full-form{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);padding: 10px;}
+mat-form-field {   width: 46%!important;
+    padding-bottom: 2px;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: inline-flex;}
+textarea {resize: none !important; height: 100%;}
+.textAreaSet {height: 120px;}
+.textAreaSet > ::ng-deep .mat-form-field-wrapper {height: 120px;}
+.textAreaSet > ::ng-deep .mat-form-field-wrapper > .mat-form-field-flex {height: 100px;}
+.textAreaSet > ::ng-deep .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix {height: 100px;}
+.label-form{    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
+    /* padding: 0px; */
+    height: 57px;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    justify-content: start;}
+    ::ng-deep .resize, ::ng-deep .resize-bar {pointer-events: none;}
+.scale-button{float: left;background-color: #3f51b5;color: #fff; font-size: 20px; position: absolute;top: 0;left: 0; padding: 0; min-width: 50px; width: 50px;}
+.cropper-div{position: absolute;background-color: #fff; height: 100%; width: 100%; top: 0; left: 0;}
+.cropper-sub-div{box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12); background: #fff;position: absolute; top: 20px; bottom: auto; width: 90%; left: 0; right: 0; margin: auto; display: block; overflow: hidden; padding-top: 100px;}
+.minus-btn{left: 55px;}
+.cropped-image{position: absolute;right: 0;top: 0;width: 100px;height: 100px;}
+.confirm-button{position: absolute; top: 45px; background: green; color: #fff; left: 0px; width: 105px;}
+.image-after-crop{height: 20px; width: 200px; border: 1px solid #000; margin-top: 15px;}
+.btn-div button{background: #3f51b5; color: #fff;}
+.width12{margin: 5px;}
+.sw100{margin: 20px;}
+.ne2{margin: 35px;}
+.dpl{ display: block;}
+
+
+@media only screen and (max-width: 600px) {
+    .image-after-crop{height: 50px; width: 50px; border: 1px solid #a6a5a5; margin-top: 15px;}
+  mat-grid-tile{
+    margin-top: -38px !important;
+      padding-top: calc((32.6667% - 0.5px) * 1 + 0px) !important;
+  }
+    mat-form-field {width: 96% !important;}
+  }
+  @media only screen and (min-width: 600px) {
+    .image-after-crop{height: 80px;
+      width: 80px;
+      border: 1px solid #a6a5a5;
+      margin-top: 15px;}
+  
+  }
+  .example-radio-button {
+    margin: 5px;
+  }
+  .matss{
+    display: inline-table;
+    width: 25%;
+    margin: 35px;
+  }
+
+input[type="file"] {
+    margin-top: -0.5em;
+    line-height: 1em;
+    border-bottom: none;
+    width: 100%;
+    height: 75px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    border: 1px solid #989898;
+    cursor: pointer;
+    left: 0;
+  
+    }
+  
+  
+  
+  .label-upload{
+    position: relative;
+    display: grid;
+    justify-content: space-around;
+    justify-items: center;
+    font-size: 15px;
+  }
+  
+  .form-field {
+    display: block;
+    padding-top: 1em;
+    margin-bottom: 2em;
+    position: relative;
+  }
+  .mat-grid-tile-content {
+    height: 80% !important;
+  
+  }

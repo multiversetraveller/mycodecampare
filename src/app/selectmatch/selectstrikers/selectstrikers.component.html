@@ -1,0 +1,52 @@
+<div class='p15 w100 fl'>
+    <div class="w100 fl">
+      <p class="fontUppercase">Batting - {{battingTeamName}}</p>
+    </div>
+    <div class='w100 fl mb15'>
+      <div class='plr5 fl w100 mb10'>
+        <mat-form-field class="w100">
+          <mat-label>Select Striker</mat-label>
+          <mat-select [(ngModel)]='selectedStriker'>
+            <mat-option value="{{item.player_id}}" *ngFor='let item of onlyListBatting'
+              (click)='firstPlayer(item.player_id)'>
+              <div class="w100 fl" *ngIf='item.player_id != secondSelectedPlayer'>
+                <img class="optImg" [src]='item.image'
+                  onerror="src='assets/image/defaultPlayer.png'"><span>{{item.name}}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class='plr5 fl w100 mb10'>
+        <mat-form-field class="w100">
+          <mat-label>Select Non-striker</mat-label>
+          <mat-select [(ngModel)]='selectedNonStriker'>
+            <mat-option value="{{item.player_id}}" *ngFor='let item of onlyListBatting'
+              (click)='secondPlayer(item.player_id)'>
+              <div class="w100 fl" *ngIf='item.player_id != firstSelectedPlayer'>
+                <img class="optImg" [src]='item.image'
+                  onerror="src='assets/image/defaultPlayer.png'"><span>{{item.name}}</span>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="w100 fl">
+      <p class="fontUppercase">Bowling - {{bowlingTeamName}}</p>
+    </div>
+    <div class='w100 fl mb15'>
+      <div class='plr5 fl w100 mb10'>
+        <mat-form-field class="w100">
+          <mat-label>Select Bowler</mat-label>
+          <mat-select [(ngModel)]='selectedBowler'>
+            <mat-option value="{{item.player_id}}" *ngFor='let item of onlyListBowling'>
+              <img class="optImg" [src]='item.image'
+                onerror="src='assets/image/defaultPlayer.png'"><span>{{item.name}}</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <button mat-button class='btnNext' (click)='goScoreBoard()'>Start Innings</button>

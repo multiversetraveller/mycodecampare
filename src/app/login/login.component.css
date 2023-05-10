@@ -1,0 +1,35 @@
+/* ::ng-deep .mat-toolbar{display: none !important;}
+::ng-deep .mat-sidenav{display: none !important;}
+::ng-deep .example-sidenav-container{margin-top: 0px !important;} */
+mat-form-field{width: 100%;}
+.mat-button{background-color: #3f51b5; color: #fff;}
+.logInForm{    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    height: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #fff;
+    position: absolute;
+    width: 366px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f6f6f6;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.frr{
+    color: #ffffff !important;
+    border-radius: 3px;
+    /* padding: 10px 15px; */
+    background: linear-gradient(122.33deg, #394ff3 30.62%, #0d66f8fa 100%);
+    /* margin-top: 30px; */
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+/* .mat-checkbox{height: auto;position: unset; width: auto; right: 10px; top: 11px;}
+::ng-deep .mat-checkbox-layout{height: auto; width: auto;}
+::ng-deep .mat-checkbox-inner-container{margin: 0 !important; position: unset !important; right: 0;} */

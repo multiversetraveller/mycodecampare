@@ -1,0 +1,58 @@
+.full-form{box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);padding: 10px;}
+mat-form-field {width: 46% !important; padding-bottom: 2px;margin-left: 2%; margin-right: 2%;}
+.btn-div button{background: #3f51b5; color: #fff;}
+.label-form{width: 100%;font-size: 20px;font-weight: bolder; padding: 0px; height: 40px;}
+::ng-deep .resize, ::ng-deep .resize-bar {pointer-events: none;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.btn {
+  background-color: green;
+  color: #fff;
+}
+::ng-deep .example-form.main-wrap {
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  margin: 0 auto 25px;
+}
+.label-form.inner-heading {
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  margin-bottom: 15px;
+  background-color: #3f51b5;
+}
+.sub-title {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: #ddd;
+  color: #000;
+  float: left;
+  width: 100%;
+  letter-spacing: 1px;
+}
+.mat-form-field.width100 {
+  width: 96% !important;
+}
+.mat-form-field.width21 {
+  width: 21% !important;
+}
+.mat-form-field.width29 {
+  width: 29% !important;
+}
+.mat-form-field.width16 {
+  width: 16% !important;
+}
+.button-wrap {
+  padding: 0 15px 15px;
+}
+.removebtn {
+  background-color: #ff0000;
+}
+
+@media only screen and (max-width: 600px) {
+  mat-form-field, mat-form-field.width21, mat-form-field.width29 {width: 96% !important;}
+  mat-form-field.width16 {
+    width: 46% !important;
+  }
+}

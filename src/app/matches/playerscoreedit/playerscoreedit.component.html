@@ -1,0 +1,286 @@
+<div class='w100 p15 fl h100'>
+    <div class="label-form">
+      <label>Edit Player Score</label>
+    </div>
+    <div class="example-form main-wrap">
+      <div class="label-form inner-heading">
+        <label>Inning 1 Batting</label>
+      </div>
+      <div class="sub-title">
+        <label>Batsman Player</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let col of innfirstbatsmens; let i = index'>
+        <mat-form-field class="example-full-width width100">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(ngModel)]="col.player_id">
+            <mat-option>Select Player </mat-option>
+            <mat-option *ngFor='let item of innfirstbatsmens' [value]="item.player_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="col.run">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Ball</mat-label>
+          <input matInput [(ngModel)]="col.ball">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>4s</mat-label>
+          <input matInput [(ngModel)]="col.four">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>6s</mat-label>
+          <input matInput [(ngModel)]="col.six">
+        </mat-form-field>
+        <div class="w100 fl button-wrap">
+          <button mat-button class="btn fl" (click)='addinningfirstbats(i)'>Add New</button>
+          <button *ngIf='i !== 0' mat-button class="btn fr removebtn" (click)='remove("removefirstbats", i)'>Remove</button>
+        </div>
+      </div>
+      <!-- Bolling data -->
+      <div class="sub-title">
+        <label>Bowling Player</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let bolwler of innfirstbolwer; let i = index'>
+        <mat-form-field class="example-full-width width100">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(ngModel)]="bolwler.bowler_id">
+            <mat-option>Select bolwler</mat-option>
+            <mat-option *ngFor='let item of innfirstbolwer' [value]="item.bowler_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Over</mat-label>
+          <input matInput [(ngModel)]="bolwler.over">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Maidan</mat-label>
+          <input matInput [(ngModel)]="bolwler.maiden">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="bolwler.total_run">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Wicket</mat-label>
+          <input matInput [(ngModel)]="bolwler.wicket">
+        </mat-form-field>
+        <div class="w100 fl button-wrap">
+          <button mat-button class="btn fl">Add New</button>
+          <button *ngIf='i !== 0' mat-button class="btn fr removebtn" (click)='remove("removefirstbol", i)'>Remove</button>
+        </div>
+      </div>
+      <div class="sub-title">
+        <label>Fall Of Wickets</label>
+      </div>
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Batsman</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Batsman </mat-option>
+            <mat-option *ngFor='let item of innfirstbatsmens' [value]="item.player_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Bowler</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Bolwler </mat-option>
+            <mat-option *ngFor='let item of innfirstbolwer' [value]="item.bowler_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Bolwler </mat-option>
+            <!-- <mat-option *ngFor='let item of team' [value]="item.team_id">{{item.team_name}}</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Over</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Wicket Type</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Score</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+      </div>
+      <div class="sub-title">
+        <label>Extra</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let firstteamextra of innfirstextra;'>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="firstteamextra.totalextra">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>LB</mat-label>
+          <input matInput [(ngModel)]="firstteamextra.lb">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Wide</mat-label>
+          <input matInput [(ngModel)]="firstteamextra.wide">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>No Ball</mat-label>
+          <input matInput [(ngModel)]="firstteamextra.nb">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Bye</mat-label>
+          <input matInput [(ngModel)]="firstteamextra.b">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <!-- Inner 2  section Start -->
+  
+    <div class="example-form main-wrap">
+      <div class="label-form inner-heading">
+        <label>Inning 2 Batting</label>
+      </div>
+      <div class="sub-title">
+        <label>Batsman Player</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let secondbats of innsecondbatsmens; let j = index'>
+        <mat-form-field class="example-full-width width100">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(ngModel)]="secondbats.player_id">
+            <mat-option>Select Player </mat-option>
+            <mat-option *ngFor='let item of innsecondbatsmens' [value]="item.player_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="secondbats.run">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Ball</mat-label>
+          <input matInput [(ngModel)]="secondbats.ball">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>4s</mat-label>
+          <input matInput [(ngModel)]="secondbats.four">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>6s</mat-label>
+          <input matInput [(ngModel)]="secondbats.six">
+        </mat-form-field>
+        <div class="w100 fl button-wrap">
+          <button mat-button class="btn fl" (click)='addinningsecondbats(j)'>Add New</button>
+          <button mat-button class="btn fr removebtn" (click)='remove("removesecondbats", j)'>Remove</button>
+        </div>
+      </div>
+      <!-- Bolling data -->
+      <div class="sub-title">
+        <label>Bowling Player</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let bolwler of innsecondbolwer; let i = index'>
+        <mat-form-field class="example-full-width width100">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(ngModel)]="bolwler.bowler_id">
+            <mat-option>Select bolwler</mat-option>
+            <mat-option *ngFor='let item of innsecondbolwer' [value]="item.bowler_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Over</mat-label>
+          <input matInput [(ngModel)]="bolwler.over">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Maidan</mat-label>
+          <input matInput [(ngModel)]="bolwler.maiden">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="bolwler.total_run">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width21">
+          <mat-label>Wicket</mat-label>
+          <input matInput [(ngModel)]="bolwler.wicket">
+        </mat-form-field>
+        <div class="w100 fl button-wrap">
+          <button mat-button class="btn fl">Add New</button>
+          <button *ngIf='i !== 0' mat-button class="btn fr removebtn" (click)='remove("removesecondbol", i)'>Remove</button>
+        </div>
+      </div>
+      <div class="sub-title">
+        <label>Fall Of Wickets</label>
+      </div>
+      <div class="example-full-width" cellspacing="0">
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Batsman</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Batsman </mat-option>
+            <mat-option *ngFor='let item of innsecondbatsmens' [value]="item.player_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Bowler</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Bolwler </mat-option>
+            <mat-option *ngFor='let item of innsecondbolwer' [value]="item.bowler_id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Select Player</mat-label>
+          <mat-select [(value)]="firstTeam">
+            <mat-option>Select Bolwler </mat-option>
+            <!-- <mat-option *ngFor='let item of team' [value]="item.team_id">{{item.team_name}}</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Over</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Wicket Type</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width width29">
+          <mat-label>Score</mat-label>
+          <input matInput [(ngModel)]='txtteam1name'>
+        </mat-form-field>
+      </div>
+      <div class="sub-title">
+        <label>Extra</label>
+      </div>
+      <div class="example-full-width" cellspacing="0" *ngFor='let secondteamextra of innsecondextra;'>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Run</mat-label>
+          <input matInput [(ngModel)]="secondteamextra.totalextra">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>LB</mat-label>
+          <input matInput [(ngModel)]="secondteamextra.lb">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Wide</mat-label>
+          <input matInput [(ngModel)]="secondteamextra.wide">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>No Ball</mat-label>
+          <input matInput [(ngModel)]="secondteamextra.nb">
+        </mat-form-field>
+        <mat-form-field class="example-full-width width16">
+          <mat-label>Bye</mat-label>
+          <input matInput [(ngModel)]="secondteamextra.b">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class='btn-div p15 fl w100'>
+      <button mat-button class="btn-save fl" (click)="back()">
+        Back
+      </button>
+      <button mat-button class="btn-save fr" (click)="getdata()">
+        Update Player Score
+      </button>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div> 

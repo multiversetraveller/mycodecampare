@@ -1,0 +1,37 @@
+<div class='w100 p15 fl h100'>
+    <div class='full-form mb20'>
+      <div class="label-form">
+        <label>Group Detail</label>
+      </div>
+      <div class="example-form">
+        <div class="example-full-width" cellspacing="0">
+          <mat-form-field class="example-full-width">
+           <mat-label>Group Name</mat-label>
+            <input matInput [(ngModel)]='txtGroupName' required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Sub Group Name</mat-label>
+            <input matInput [(ngModel)]='txtSubGroupName' required>
+          </mat-form-field>
+        </div>
+      <div class="label-form">
+        <label>Select Team</label>
+      </div>
+      <mat-radio-group aria-label="Select an option" [(ngModel)] = 'txtteamName' class='mb20 w100 fl'>
+        <mat-radio-button *ngFor='let item of teams'  [value]="item.team_id" class='radioWidth'>{{item.team_name}}</mat-radio-button>
+      </mat-radio-group>
+      </div>
+      <div class='btn-div'>
+        <button mat-raised-button color="primary" class="btn-back" (click)="back()">
+          BACK
+        </button>
+        <button mat-raised-button color="primary" class="btn-save fr" (click)="save()">
+          SAVE
+        </button>
+      </div>
+    </div>
+    <div class="loader-div" *ngIf='isLoaderShow'>
+      <mat-progress-spinner mode='indeterminate' diameter='50'>
+      </mat-progress-spinner>
+    </div>
+  </div>

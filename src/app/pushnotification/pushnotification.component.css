@@ -1,0 +1,12 @@
+.pushForm{margin: auto;}
+.loader-div ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {stroke: #fff;}
+.sendBtn{position: absolute;
+    display: flex;
+    right: 0;
+    margin: 20px;
+}
+.mat-option {
+    color: rgba(0,0,0,.87) !important;
+    height: 38px !important;
+    line-height: 49px !important;
+}
